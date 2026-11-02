@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacio de Repaso - MÓDULO: SISTEMAS ARTIFICIALES DE UÑAS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ficde-azul-dark: #134252;
+            --ficde-azul-light: #2c5c6e;
+            --ficde-naranja: #e68161;
+            --ficde-naranja-hover: #ff9f85;
+            --tarjeta-bg: #f0f4f5;
+            --input-bg: #e2e8eb;
+            --texto-principal: #0f2d38;
+            --texto-secundario: #4a636e;
+            --verde-exito: #2e7d32;
+            --verde-bg: #c8e6c9;
+            --rojo-error: #c62828;
+            --naranja-bg: #ffe0b2;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--ficde-azul-dark) 0%, #0a252e 100%);
+            min-height: 100vh;
+            color: var(--texto-principal);
+            padding: 20px;
+            background-attachment: fixed;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-img { height: 50px; width: auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+
+        .module-tag {
+            background: var(--ficde-naranja);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .welcome-card {
+            background: var(--tarjeta-bg);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            border-bottom: 6px solid var(--ficde-naranja);
+            margin-bottom: 30px;
+        }
+
+        .welcome-title {
+            color: var(--ficde-azul-dark);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .fede-avatar-large {
+            width: 140px; height: 140px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: var(--ficde-naranja);
+            padding: 5px;
+            box-shadow: 0 10px 25px rgba(230, 129, 97, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s;
+            overflow: hidden;
+        }
+
+        .fede-avatar-large:hover { transform: scale(1.1); }
+
+        .fede-avatar-large img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+
+        .blocks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .block-card {
+            background: var(--tarjeta-bg);
+            padding: 30px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .block-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--ficde-naranja);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .block-icon {
+            font-size: 3rem; margin-bottom: 15px;
+            background: rgba(19, 66, 82, 0.1);
+            width: 70px; height: 70px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; color: var(--ficde-azul-dark);
+        }
+
+        .block-title { color: var(--ficde-azul-dark); font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+
+        .block-desc { 
+            color: var(--texto-secundario); 
+            font-size: 0.9rem; 
+            line-height: 1.5; 
+            word-wrap: break-word;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .activity-screen {
+            display: none;
+            grid-template-columns: 280px 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .activity-screen.active { display: grid; }
+
+        .tutor-sidebar {
+            background: var(--ficde-azul-light);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            position: sticky; top: 20px;
+        }
+
+        .tutor-bubble {
+            background: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: var(--ficde-azul-dark);
+            margin-top: 20px;
+            position: relative;
+            text-align: left;
+            word-wrap: break-word;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .tutor-bubble::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            border-width: 0 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent rgba(255,255,255,0.95);
+            transform: translateX(-50%);
+        }
+
+        .activity-content {
+            background: var(--tarjeta-bg);
+            padding: 40px;
+            border-radius: 16px;
+            min-height: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .act-badge {
+            background: var(--ficde-naranja);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .act-title { font-size: 1.8rem; color: var(--ficde-azul-dark); margin: 15px 0; font-weight: 800; }
+
+        .act-instruction { 
+            font-size: 1.1rem; 
+            color: var(--texto-secundario); 
+            margin-bottom: 30px; 
+            word-wrap: break-word;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .student-input {
+            width: 100%;
+            height: 150px;
+            padding: 20px;
+            background: var(--input-bg);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--ficde-azul-dark);
+            transition: all 0.3s;
+        }
+
+        .student-input:focus { background: white; border-color: var(--ficde-naranja); outline: none; }
+
+        .fill-input {
+            border: none;
+            border-bottom: 2px solid var(--ficde-naranja);
+            background: transparent;
+            font-weight: 700;
+            color: var(--ficde-azul-dark);
+            text-align: center;
+            width: 150px;
+            font-size: 1.1rem;
+        }
+
+        .btn-action {
+            width: 100%;
+            padding: 18px;
+            margin-top: 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            background: linear-gradient(90deg, var(--ficde-naranja), #ff9f85);
+            color: white;
+            box-shadow: 0 6px 20px rgba(230, 129, 97, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .btn-action:hover { transform: translateY(-3px); }
+
+        .btn-back {
+            background: transparent;
+            color: var(--texto-secundario);
+            box-shadow: none;
+            border: 2px solid #ccc;
+            margin-top: 15px;
+        }
+
+        .btn-back:hover { background: #e0e0e0; color: var(--ficde-azul-dark); }
+
+        .traffic-row, .checklist-item {
+            background: white;
+            margin-bottom: 12px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .traffic-row:hover, .checklist-item:hover { border-color: var(--ficde-naranja); transform: translateX(5px); }
+
+        .traffic-btn {
+            width: 35px; height: 35px;
+            border-radius: 50%; border: 2px solid #ddd;
+            cursor: pointer;
+            opacity: 0.3;
+        }
+
+        .traffic-btn.active { opacity: 1; transform: scale(1.2); border-color: var(--ficde-azul-dark); }
+
+        .bg-green { background: #4CAF50; }
+
+        .bg-yellow { background: #FFC107; }
+
+        .bg-red { background: #f44336; }
+
+        .check-box {
+            width: 24px; height: 24px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .checklist-item.selected { border-color: var(--ficde-naranja); background: #fff5f0; }
+
+        .checklist-item.selected .check-box { background: var(--ficde-naranja); border-color: var(--ficde-naranja); color: white; }
+
+        .feedback-area {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            display: none;
+            animation: slideUp 0.4s;
+        }
+
+        .feedback-success { background: var(--verde-bg); color: #1b5e20; border-left: 6px solid var(--verde-exito); }
+
+        .feedback-retry { background: var(--naranja-bg); color: #bf360c; border-left: 6px solid #ef6c00; }
+
+        .feedback-fail { background: #cfd8dc; color: #37474f; border-left: 6px solid #455a64; }
+
+        #musicToggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--ficde-naranja);
+            color: white;
+            border: none;
+            cursor: pointer;
+            z-index: 100;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .activity-screen { grid-template-columns: 1fr; }
+            .tutor-sidebar { display: flex; align-items: center; gap: 20px; }
+            .fede-avatar-large { width: 80px; height: 80px; }
+            .tutor-bubble::after { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- AUDIOS MP3 -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="chill-study-desk-focus-concentration-lofi-451180.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="saludoInicial" preload="auto" src="saludoinicial.mp3"></audio>
+    <audio id="mensaje1Ejercicios" preload="auto" src="mensaje1ejercicios.mp3"></audio>
+    <audio id="mensaje2Ejercicios" preload="auto" src="mensaje2ejercicios.mp3"></audio>
+    <audio id="mensaje3Ejercicios" preload="auto" src="mensaje3ejercicios.mp3"></audio>
+    <audio id="mensaje4Ejercicios" preload="auto" src="mensaje4ejercicios.mp3"></audio>
+    <audio id="respuestaCorrecta" preload="auto" src="respuestacorrecta.mp3"></audio>
+    <audio id="primerError" preload="auto" src="primererror.mp3"></audio>
+    <audio id="segundoError" preload="auto" src="segundoerror.mp3"></audio>
+    <audio id="loLograste" preload="auto" src="lolograste.mp3"></audio>
+
+    <audio id="hoverSound" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.m4a"></audio>
+    <audio id="clickSound" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.m4a"></audio>
+    <audio id="successSound" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.m4a"></audio>
+
+    <button id="musicToggle" onclick="toggleMusic()">🔇</button>
+
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="logo.png" alt="FICDE" class="logo-img" onerror="this.style.display='none'; document.getElementById('altLogo').style.display='block'">
+                <h2 id="altLogo" style="display:none; color:white; font-weight:800;">FICDE</h2>
+            </div>
+            <div class="module-tag">Módulo: SISTEMAS ARTIFICIALES DE UÑAS</div>
+        </header>
+
+        <div id="selectionScreen">
+            <div class="welcome-card">
+                <div class="fede-avatar-large" onclick="playAudio('saludoInicial')">
+                    <img src="personaje.gif" alt="Fede">
+                </div>
+                <h1 class="welcome-title">Espacio de Repaso Interactivo</h1>
+                <p style="color: var(--texto-secundario); font-size: 1.1rem;">Donde el conocimiento se convierte en acción</p>
+            </div>
+
+            <div class="blocks-grid">
+                <div class="block-card" onclick="startModule('sintesis')">
+                    <div class="block-icon">🧠</div>
+                    <div class="block-title">Síntesis</div>
+                    <div class="block-desc">sistemas artificiales, soft gel, acrigel, polygel y builder gel, preparación química, técnicas de esculpido y moldes, arquitectura y ápice, limado técnico, mantenimiento y relleno.</div>
+                </div>
+
+                <div class="block-card" onclick="startModule('analisis')">
+                    <div class="block-icon">🔍</div>
+                    <div class="block-title">Análisis Crítico</div>
+                    <div class="block-desc">errores de preparación y adherencia, sobrelimado, fallas en tips y arquitectura, exceso de producto e imperfecciones, problemas de polimerización, errores en el relleno y retiro agresivo.</div>
+                </div>
+
+                <div class="block-card" onclick="startModule('escenarios')">
+                    <div class="block-icon">🎬</div>
+                    <div class="block-title">Escenarios</div>
+                    <div class="block-desc">atención según características y alteraciones ungueales, adaptación y corrección de sistemas, reconstrucción de arquitectura, mantenimiento, relleno, remoción segura y ajuste de curvatura.</div>
+                </div>
+
+                <div class="block-card" onclick="startModule('practica')">
+                    <div class="block-icon">⚡</div>
+                    <div class="block-title">Práctica</div>
+                    <div class="block-desc">preparación y sanitización, colocación de soft gel, aplicación de preparadores, moldeado con polygel y gel constructor, técnicas de esculpido, limado técnico, relleno y retiro controlado.</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="activityScreen" class="activity-screen">
+            <div class="tutor-sidebar">
+                <div class="fede-avatar-large" style="width: 100px; height: 100px; border-color: var(--ficde-naranja);" onclick="replayTutorMessage()">
+                    <img src="personaje.gif" alt="Fede">
+                </div>
+                <div style="flex:1;">
+                    <h3 style="color:var(--ficde-naranja); margin-bottom:5px;">Tutor Fede</h3>
+                    <div class="tutor-bubble" id="tutorMessage"></div>
+                </div>
+            </div>
+
+            <div class="activity-content" id="activityContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        // ===== GESTIÓN DE AUDIO MP3 =====
+        const audioFiles = {
+            saludoInicial: document.getElementById('saludoInicial'),
+            mensaje1: document.getElementById('mensaje1Ejercicios'),
+            mensaje2: document.getElementById('mensaje2Ejercicios'),
+            mensaje3: document.getElementById('mensaje3Ejercicios'),
+            mensaje4: document.getElementById('mensaje4Ejercicios'),
+            correcto: document.getElementById('respuestaCorrecta'),
+            error1: document.getElementById('primerError'),
+            error2: document.getElementById('segundoError'),
+            lolograste: document.getElementById('loLograste')
+        };
+
+        function playAudio(audioKey) {
+            if (audioFiles[audioKey]) {
+                audioFiles[audioKey].currentTime = 0;
+                audioFiles[audioKey].play().catch(err => console.log('Error al reproducir audio:', err));
+            }
+        }
+
+        const bgMusic = document.getElementById('bgMusic');
+        const clickSoundEl = document.getElementById('clickSound');
+        const successSoundEl = document.getElementById('successSound');
+        const hoverSoundEl = document.getElementById('hoverSound');
+
+        let musicOn = false;
+        let audioUnlocked = false;
+
+        function unlockAudio() {
+            if (audioUnlocked) return;
+            Object.values(audioFiles).forEach(a => {
+                a.volume = 0;
+                const p = a.play();
+                if (p) p.then(() => { a.pause(); a.currentTime = 0; a.volume = 1; }).catch(()=>{});
+            });
+            audioUnlocked = true;
+        }
+
+        document.addEventListener('pointerdown', unlockAudio, { once: true });
+        document.addEventListener('keydown', unlockAudio, { once: true });
+
+        function toggleMusic() {
+            unlockAudio();
+            if (!musicOn) {
+                bgMusic.volume = 0.1;
+                bgMusic.play().catch(() => {});
+                document.getElementById('musicToggle').innerText = '🎵';
+            } else {
+                bgMusic.pause();
+                document.getElementById('musicToggle').innerText = '🔇';
+            }
+            musicOn = !musicOn;
+        }
+
+        function playSound(type) {
+            if (!audioUnlocked) return;
+            try {
+                if (type === 'click') { clickSoundEl.currentTime=0; clickSoundEl.volume=0.8; clickSoundEl.play().catch(()=>{}); }
+                if (type === 'success') { successSoundEl.currentTime=0; successSoundEl.volume=0.8; successSoundEl.play().catch(()=>{}); }
+                if (type === 'hover') { hoverSoundEl.currentTime=0; hoverSoundEl.volume=0.2; hoverSoundEl.play().catch(()=>{}); }
+            } catch (e) {}
+        }
+
+        function wireUiSounds() {
+            document.querySelectorAll('.block-card, .btn-action, .checklist-item, .traffic-row, .fede-avatar-large').forEach(el => {
+                if (el.dataset.sound === '1') return;
+                el.dataset.sound = '1';
+                el.addEventListener('mouseenter', () => playSound('hover'));
+                el.addEventListener('click', () => playSound('click'));
+            });
+        }
+
+        window.addEventListener('load', wireUiSounds);
+
+        // ===== NORMALIZACIÓN DE TEXTO =====
+        function normalizar(txt) {
+            return txt.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        // ===== ACTIVIDADES =====
+        const modules = {
+            sintesis: [
+                {
+                    type: 'text',
+                    badge: "Sistemas artificiales",
+                    title: "Concepto y propósito",
+                    instruction: "Define el concepto de los sistemas artificiales de uñas indicando su objetivo de fortalecer y embellecer la uña natural.",
+                    tutor: "Considera que los productos específicos otorgan mayor durabilidad respetando la salud ungueal.",
+                    explanation: "Los sistemas artificiales aportan mayor resistencia y durabilidad preservando la salud de la uña natural.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["sistem", "resist", "salud", "artifi", "aporta", "mayor", "durabi", "preser", "natura", "define"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'text',
+                    badge: "Tecnología Soft Gel",
+                    title: "Características y tips full cover",
+                    instruction: "Clasifica las ventajas estructurales de los tips de soft gel frente al plástico tradicional.",
+                    tutor: "Analiza el material cien por ciento gel, la cobertura completa y la facilidad de disolución con acetona.",
+                    explanation: "Los tips de gel flexible brindan cobertura full cover y facilitan una rápida remoción con solvente.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["flexib", "full", "cover", "remoci", "tips", "brinda", "cobert", "facili", "rapida", "solven"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'checklist',
+                    badge: "Preparación química",
+                    title: "Deshidratador e imprimante",
+                    instruction: "Selecciona las tres funciones principales que cumplen los preparadores químicos sobre la lámina ungueal.",
+                    items: [
+                        { text: "Reducir temporalmente la humedad y grasitud", correct: true },
+                        { text: "Favorecer la adherencia del producto artificial", correct: true },
+                        { text: "Equilibrar el pH de la superficie ungueal", correct: true },
+                        { text: "Adelgazar excesivamente las capas queratinizadas", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Identifica la acción del deshidratador para remover oleosidad y del imprimante para fijar la estructura.",
+                    explanation: "Los preparadores eliminan la humedad, equilibran el pH y garantizan la adherencia del material."
+                },
+                {
+                    type: 'text',
+                    badge: "Material Polygel",
+                    title: "Propiedades y viscosidad",
+                    instruction: "Detalla las características del polygel respecto a su consistencia estable y control de moldeado.",
+                    tutor: "Observa que permite distribuir el producto sin prisa antes de llevar la mano a la cabina.",
+                    explanation: "El polygel ofrece gran estabilidad para un moldeado preciso previo al curado en lámpara.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["polyge", "estabi", "moldea", "ofrece", "gran", "precis", "previo", "curado", "lampar", "detall"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'blanks',
+                    anyOrder: false,
+                    badge: "Gel constructor",
+                    title: "Funciones del Builder Gel",
+                    instruction: "Completar la frase<br><br>El gel constructor o builder gel permite ________ la uña natural, construir ___________ y crear la arquitectura del _____.",
+                    blanks: ["reforzar", "extensiones", "ápice"],
+                    tutor: "Recuerda las facultades de este gel viscoso para generar volumen, longitud y zonas de resistencia.",
+                    explanation: "El gel constructor permite reforzar la lámina, estructurar extensiones y moldear el ápice resistente."
+                },
+                {
+                    type: 'text',
+                    badge: "Esculpido con molde",
+                    title: "Soporte de papel",
+                    instruction: "Expone la función del molde de papel descartable como guía de construcción en uñas esculpidas.",
+                    tutor: "Considera cómo se posiciona debajo del borde libre para dar dirección, forma y longitud a la extensión.",
+                    explanation: "Colocar el molde bajo el borde libre sirve de guía para definir la alineación de la extensión.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["molde", "guia", "alinea", "coloca", "bajo", "borde", "libre", "sirve", "defini", "extens"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'checklist',
+                    badge: "Cápsulas Dual Forms",
+                    title: "Moldes reutilizables",
+                    instruction: "Identifica las tres ventajas operativas de la técnica dual forms al construir extensiones.",
+                    items: [
+                        { text: "Optimización del tiempo de limado de superficie", correct: true },
+                        { text: "Modelado interno del producto antes de posicionar", correct: true },
+                        { text: "Obtención de una superficie uniforme y brillante", correct: true },
+                        { text: "Eliminación completa de la preparación mecánica inicial", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Busca las propiedades del molde sintético que forma la estructura lisa en su interior.",
+                    explanation: "Las cápsulas reducen el limado, facilitan el modelado interno y logran un acabado uniforme."
+                },
+                {
+                    type: 'text',
+                    badge: "Arquitectura ungueal",
+                    title: "Zona de tensión y ápice",
+                    instruction: "Describe la importancia de la correcta ubicación del ápice en el punto de mayor resistencia de la uña.",
+                    tutor: "Localiza el centro de masa necesario para amortiguar impactos y evitar fracturas en el borde libre.",
+                    explanation: "Ubicar el ápice en la zona de tensión brinda el equilibrio estructural que evita roturas.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["apice", "tensio", "equili", "ubicar", "zona", "brinda", "estruc", "evita", "rotura", "descri"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'traffic',
+                    badge: "Limado técnico",
+                    title: "Herramientas y gramaje",
+                    instruction: "Marca afirmaciones correctas",
+                    items: [
+                        { text: "El limado técnico busca perfeccionar la arquitectura sin desgastar la lámina ungueal natural", color: "green" },
+                        { text: "Aplicar mayor presión con limas de grano grueso es la forma correcta de acelerar el trabajo", color: "red" },
+                        { text: "Las limas spongee o buffer permiten suavizar la superficie antes del pulido o sellado", color: "green" },
+                        { text: "El limado de laterales debe eliminar por completo las paredes de encastre de la uña", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Contrasta el perfeccionamiento controlado del producto con el daño por desgaste excesivo.",
+                    explanation: "El limado suave perfecciona la estructura preservando la salud de la uña natural."
+                },
+                {
+                    type: 'text',
+                    badge: "Mantenimiento ungueal",
+                    title: "Concepto de relleno",
+                    instruction: "Sintetiza el objetivo del procedimiento de mantenimiento ante el crecimiento de la uña natural.",
+                    tutor: "Analiza que no se limita a cubrir la franja desnudada sino a reequilibrar la estructura completa.",
+                    explanation: "Realizar el mantenimiento reubica la arquitectura de soporte desplazada por el crecimiento.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["manten", "arquit", "crecim", "realiz", "reubic", "soport", "despla", "sintet", "objeti", "proced"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                }
+            ],
+            analisis: [
+                {
+                    type: 'text',
+                    badge: "Sobrelimado de la lámina",
+                    title: "Adelgazamiento inútil",
+                    instruction: "Examina las graves consecuencias de desbastar en exceso la uña natural buscando falsa adherencia.",
+                    tutor: "Reflexiona sobre la.",
+                    explanation: "Incurrir en el sobrelimado genera un severo debilitamiento provocando dolor y alta sensibilidad.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["sobrel", "debili", "sensib", "incurr", "genera", "severo", "provoc", "dolor", "alta", "examin"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'text',
+                    badge: "Desprendimiento prematuro",
+                    title: "Fallas en preparación química",
+                    instruction: "Evalúa los factores que causan la pérdida de adherencia cuando se omiten los limpiadores y deshidratadores.",
+                    tutor: "Considera el efecto barrera que genera la grasa natural de la placa si no se remueve adecuadamente.",
+                    explanation: "La presencia de humedad y oleosidad residual provoca el desprendimiento precoz del sistema.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["despre", "humeda", "oleosi", "presen", "residu", "provoc", "precoz", "sistem", "evalua", "factor"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'checklist',
+                    badge: "Contacto con la piel",
+                    title: "Riesgos de quemadura",
+                    instruction: "Escoge los problemas derivados de permitir que el gel o imprimante toque los pliegues cutáneos.",
+                    items: [
+                        { text: "Sensibilización y posible dermatitis de contacto", correct: true },
+                        { text: "Levantamientos en la zona proximal de la cutícula", correct: true },
+                        { text: "Filtración de humedad entre el producto y la piel", correct: true },
+                        { text: "Aumento automático de la flexibilidad de la uña", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Identifica los efectos adversos biológicos y mecánicos del contacto químico no deseado.",
+                    explanation: "Tocar la piel produce sensibilización, genera levantamientos y favorece la filtración de agua."
+                },
+                {
+                    type: 'text',
+                    badge: "Elección de tips",
+                    title: "Talle y curvatura",
+                    instruction: "Explica las fallas estructurales provocadas por forzar un tip más estrecho que el ancho del lecho.",
+                    tutor: "Analiza el efecto de tensión constante que busca volver a su forma original desprendiéndose de los laterales.",
+                    explanation: "Seleccionar un talle chico ejerce presión excesiva que termina causando el despegue lateral.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["talle", "presio", "despeg", "selecc", "chico", "ejerce", "excesi", "termin", "causan", "latera"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'blanks',
+                    anyOrder: false,
+                    badge: "Desbalance estructural",
+                    title: "Desplazamiento del ápice",
+                    instruction: "Completar la frase<br><br>Un ápice demasiado __________ deja desprotegida la zona de tensión, mientras que un ápice muy ________ recarga de peso la cutícula.",
+                    blanks: ["adelantado", "atrasado"],
+                    tutor: "Recuerda cómo la mala distribución del volumen desplaza el punto de quiebre o sobrecarga el inicio.",
+                    explanation: "Ubicar el ápice adelantado desprotege el centro y ponerlo atrasado genera desbalance proximal."
+                },
+                {
+                    type: 'text',
+                    badge: "Errores en Dual Forms",
+                    title: "Burbujas y filtraciones",
+                    instruction: "Juzga las causas operativas que generan vacíos de aire al asentar las cápsulas sobre la uña.",
+                    tutor: "Observa el apoyo brusco en lugar de un asentamiento progresivo a 45 grados desde la cutícula.",
+                    explanation: "Presionar sin control atrapa burbujas internas dejando zonas de vacuidad que arruinan la adherencia.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["burbuj", "vacuid", "adhere", "presio", "contro", "atrapa", "intern", "dejand", "zonas", "arruin"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'checklist',
+                    badge: "Exceso de material",
+                    title: "Problemas de grosor",
+                    instruction: "Menciona los inconvenientes provocados por aplicar capas de gel constructor demasiado gruesas.",
+                    items: [
+                        { text: "Picos de calor extremos durante la fotocuración", correct: true },
+                        { text: "Curado incompleto en la capa interna del producto", correct: true },
+                        { text: "Estructura tosca que requiere limado prolongado", correct: true },
+                        { text: "Incremento de la flexibilidad natural de la lámina", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Localiza las consecuencias térmicas, químicas y estéticas de no controlar el volumen depositado.",
+                    explanation: "El grosor excesivo causa picos de calor, curado incompleto y exige un limado agotador."
+                },
+                {
+                    type: 'text',
+                    badge: "Pico térmico",
+                    title: "Calor en cabina",
+                    instruction: "Argumenta por qué la polimerización rápida del gel fotoiniciado puede causar sensación de quemadura.",
+                    tutor: "Contempla la liberación de energía calórica durante la reacción de entrecruzamiento de las cadenas de polímero.",
+                    explanation: "La reacción exotérmica durante el fotocurado genera un pico térmico que provoca quemadura.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["fotocu", "exoter", "quemad", "reacci", "durant", "genera", "pico", "termic", "provoc", "argume"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'traffic',
+                    badge: "Relleno incorrecto",
+                    title: "Producto sobre desprendimientos",
+                    instruction: "Marca afirmaciones correctas",
+                    items: [
+                        { text: "Aplicar gel nuevo sobre zonas levantadas atrapa humedad y favorece el desarrollo de bacterias", color: "green" },
+                        { text: "Los desprendimientos previos pueden reestructurarse agregando abundante imprimante ácido encima", color: "red" },
+                        { text: "Retirar el producto desprendido antes de rellenar es obligatorio para garantizar la salud ungueal", color: "green" },
+                        { text: "Cubrir una zona verdosa con gel oscuro resuelve la alteración sin necesidad de retirar la extensión", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Asocia la remoción total del material suelto con la prevención de proliferación bacteriana.",
+                    explanation: "Retirar el material levantado previene la acumulación de humedad y posibles infecciones."
+                },
+                {
+                    type: 'text',
+                    badge: "Retiro agresivo",
+                    title: "Desgastado con torno",
+                    instruction: "Sopesa los riesgos de intentar eliminar la totalidad del producto artificial utilizando únicamente fresas mecánicas.",
+                    tutor: "Considera el peligro de tocar la lámina viva y la recomendación de combinar torno con solventes.",
+                    explanation: "Abusar del desbaste con torno causa agresión mecánica, siendo clave recurrir al ablandado químico.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["desbas", "agresi", "abland", "abusar", "torno", "causa", "mecani", "siendo", "clave", "recurr"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                }
+            ],
+            escenarios: [
+                {
+                    type: 'text',
+                    badge: "Uñas mordidas",
+                    title: "Adaptación inicial corta",
+                    instruction: "Plantea el protocolo de reconstrucción para una clienta con onicofagia severa y sin borde libre.",
+                    tutor: "Considera el uso de estructuras cortas y un ajuste minucioso del molde sin invadir la piel dañada.",
+                    explanation: "Tratar la onicofagia requiere una extensión corta y una cuidadosa adaptación del molde.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["onicof", "corta", "adapta", "tratar", "requie", "extens", "cuidad", "molde", "plante", "protoc"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'traffic',
+                    badge: "Uña convexa",
+                    title: "Perfiles y curvatura",
+                    instruction: "Marca afirmaciones correctas",
+                    items: [
+                        { text: "En uñas convexas es necesario adaptar la curvatura del tip para evitar levantamientos en la cutícula", color: "green" },
+                        { text: "Colocar un tip estándar plano sobre una uña muy convexa garantiza una adhesión perfecta sin tensión", color: "red" },
+                        { text: "Reducir ligeramente el borde libre promueve una mejor asentación de la extensión sobre el lecho", color: "green" },
+                        { text: "Las uñas convexas deben rellenarse únicamente con capas gruesas de acrílico sin limado previo", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Evalúa la selección de tips con perfiles pronunciados y el control de espacios en la zona proximal.",
+                    explanation: "Adaptar el perfil del tip a la uña convexa evita tensiones y levantamientos en cutícula."
+                },
+                {
+                    type: 'text',
+                    badge: "Hiperhidrosis",
+                    title: "Adherencia en manos sudorosas",
+                    instruction: "Diseña una estrategia de preparación química para una clienta cuya piel presenta sudoración constante.",
+                    tutor: "Coordina la doble aplicación de nail prep e imprimantes sin ácido para contrarrestar la humedad celular.",
+                    explanation: "Ante la hiperhidrosis se aplica doble deshidratador para lograr un refuerzo efectivo de adherencia.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["hiperh", "deshid", "refuer", "ante", "aplica", "doble", "lograr", "efecti", "adhere", "disena"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'checklist',
+                    badge: "Lámina frágil",
+                    title: "Refuerzo y protección",
+                    instruction: "Puntualiza las tres decisiones técnicas para proteger una uña natural delgada y quebradiza.",
+                    items: [
+                        { text: "Selección de un sistema flexible como soft gel o rubber", correct: true },
+                        { text: "Limado de preparación ultra suave con grano fino", correct: true },
+                        { text: "Evitación de estiramientos o longitudes extremas", correct: true },
+                        { text: "Desbaste intenso de la superficie con fresas de carburo", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Busca las alternativas que amortiguan impactos y previenen el quiebre de la lámina sensibilizada.",
+                    explanation: "Aplicar un gel flexible, realizar un limado suave y evitar largos extremos protege la uña."
+                },
+                {
+                    type: 'text',
+                    badge: "Alineación desviada",
+                    title: "Corrección del eje",
+                    instruction: "Ilustra la técnica de alineación del molde o tip cuando la uña natural presenta un crecimiento inclinado.",
+                    tutor: "Detalla cómo guiarse por el eje central de la falange en lugar de seguir la inclinación del borde libre.",
+                    explanation: "Ajustar la alineación respecto al eje del dedo corrige la desviación devolviendo simetría.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["alinea", "simetr", "ajusta", "respec", "dedo", "corrig", "desvia", "devolv", "ilustr", "tecnic"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'traffic',
+                    badge: "Impacto y quebradura",
+                    title: "Reconstrucción de zona de tensión",
+                    instruction: "Marca afirmaciones correctas",
+                    items: [
+                        { text: "Ante una rotura con dolor en la zona de tensión se debe retirar suavemente el producto y desinfectar", color: "green" },
+                        { text: "Si existe herida sangrante debajo de la uña quebrada es seguro aplicar polygel sobre la lesión abierta", color: "red" },
+                        { text: "Estabilizar el área con una capa delgada de gel protector ayuda a curar el lecho lastimado sin sangrado", color: "green" },
+                        { text: "Es recomendable limar con fuerza sobre el lecho expuesto para alisar la fisura inmediatamente", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Asocia la suspensión del servicio sobre piel herida con la prevención de lesiones mayores.",
+                    explanation: "Retirar el producto dañado y sanitizar el lecho expuesto evita complicaciones e infecciones."
+                },
+                {
+                    type: 'text',
+                    badge: "Evaluación de servicio",
+                    title: "Criterio de relleno o retiro",
+                    instruction: "Desglosa los criterios clínicos para decidir si una estructura de 4 semanas debe rellenarse o retirarse.",
+                    tutor: "Analiza la presencia de levantamientos masivos, cambio de color o desplazamiento completo del ápice.",
+                    explanation: "La evaluación del estado general define si procede el mantenimiento o corresponde el retiro total.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["evalua", "despre", "retiro", "estado", "genera", "define", "proced", "manten", "corres", "total"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'checklist',
+                    badge: "Retiro soak off",
+                    title: "Remoción en piel reactiva",
+                    instruction: "Reúne las precauciones necesarias al realizar la remoción con removedor en una clienta de piel sensible.",
+                    items: [
+                        { text: "Proteger la piel perialveolar con aceite de cutículas o vaselina", correct: true },
+                        { text: "Envolver con papel aluminio para evitar evaporación rápida", correct: true },
+                        { text: "Retirar el producto blando suavemente con palito de naranjo", correct: true },
+                        { text: "Frotar con acetona pura sobre los pliegues irritados", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Agrupa las barreras protectoras, la concentración del vapor y el raspado no agresivo.",
+                    explanation: "Aplicar una barrera grasa, sellar con aluminio y remover sin fuerza resguarda la piel."
+                },
+                {
+                    type: 'text',
+                    badge: "Crecimiento avanzado",
+                    title: "Reubicación del ápice",
+                    instruction: "Expón el procedimiento técnico para rebajar el exceso de producto desplazado hacia la punta durante el relleno.",
+                    tutor: "Indica la remoción del escalón proximal y el nivelado del centro para reubicar el punto de equilibrio.",
+                    explanation: "Ejecutar el desbaste del extremo crecido permite la nivelación y correcta ubicación del ápice.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["desbas", "nivela", "apice", "ejecut", "extrem", "crecid", "permit", "correc", "ubicac", "expon"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'traffic',
+                    badge: "Uñas planas",
+                    title: "Estructura y curvatura C",
+                    instruction: "Marca afirmaciones correctas",
+                    items: [
+                        { text: "Las uñas planas requieren la aportación de producto en el centro para crear la curvatura C ausente", color: "green" },
+                        { text: "Colocar un tip con curvatura profunda sobre uña plana sin adaptar genera burbujas y tensión", color: "green" },
+                        { text: "Las uñas planas son inmunes a los impactos laterales por tener una superficie amplia de apoyo", color: "red" },
+                        { text: "El polygel es inadecuado para crear estructura sobre uñas planas por su falta de fluidez", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Contrasta la adaptación de tips planos con la construcción progresiva de volumen en el ápice.",
+                    explanation: "Estructurar la curvatura en uñas planas mediante polygel proporciona la resistencia necesaria."
+                }
+            ],
+            practica: [
+                {
+                    type: 'checklist',
+                    badge: "Higienización inicial",
+                    title: "Acondicionamiento de placa",
+                    instruction: "Elige los tres pasos esenciales para sanitizar y preparar la zona de cutículas antes de extender.",
+                    items: [
+                        { text: "Sanitización de manos y uñas con alcohol al 70%", correct: true },
+                        { text: "Repujado suave del eponiquio y retiro del pterigión", correct: true },
+                        { text: "Matificado de la lámina con lima de grano 240", correct: true },
+                        { text: "Aplicación de aceite hidratante antes del primer", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Enfócate en la desinfección inicial, el despeje de pieles muertas y la remoción de brillo sin desbastar.",
+                    explanation: "Higienizar con alcohol, retirar el pterigión y remover el brillo con lima prepara la uña."
+                },
+                {
+                    type: 'text',
+                    badge: "Aplicación Soft Gel",
+                    title: "Asentamiento a 45 grados",
+                    instruction: "Instruye paso a paso cómo posicionar el tip de soft gel desde la zona proximal hasta el borde libre.",
+                    tutor: "Detalla el apoyo a 45 grados cerca de cutícula descendiendo suavemente para expulsar el aire sin burbujas.",
+                    explanation: "Realizar el asentamiento a 45 ángulos aplicando suave presión evita la formación de burbujas.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["asenta", "angulo", "presio", "realiz", "aplica", "suave", "evita", "formac", "burbuj", "instru"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'blanks',
+                    anyOrder: false,
+                    badge: "Preparación química",
+                    title: "Secuencia de deshidratador y bonder",
+                    instruction: "Completar la frase<br><br>Tras eliminar el polvo se aplica el _____________ para quitar humedad, seguido del ______ sin ácido que actúa como cinta bifaz.",
+                    blanks: ["deshidratador", "bonder"],
+                    tutor: "Piensa en el orden estricto de aplicación de los químicos de nivelación y adherencia.",
+                    explanation: "Aplicar el deshidratador quita la grasa y colocar el bonder genera el anclaje químico."
+                },
+                {
+                    type: 'traffic',
+                    badge: "Modelado de Polygel",
+                    title: "Pincel y solución",
+                    instruction: "Marca afirmaciones correctas",
+                    items: [
+                        { text: "El pincel para polygel debe humedecerse en solución moldeadora o alcohol sin empapar el producto", color: "green" },
+                        { text: "Trabajar el polygel con el pincel muy seco provoca que la masa se pegue a las cerdas y se deforme", color: "red" },
+                        { text: "El exceso de alcohol en el pincel degrada la fórmula del polygel causando levantamientos", color: "green" },
+                        { text: "El polygel polimeriza al aire libre en 3 minutos sin requerir curado en cabina LED", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Analiza el control de la humedad en las cerdas del pincel para distribuir la masa de polygel.",
+                    explanation: "Humedecer el pincel en la solución adecuada permite moldear el polygel sin degradarlo."
+                },
+                {
+                    type: 'text',
+                    badge: "Nivelación de Builder Gel",
+                    title: "Técnica de gota y ápice",
+                    instruction: "Prescribe el método de aplicación de la gota de gel constructor autonivelante para formar el peralte.",
+                    tutor: "Indica la creación del hilo de conexión en zona media invirtiendo el dedo para aprovechar la gravedad.",
+                    explanation: "Depositar la gota de gel autonivelante y trabajar en suspensión crea un ápice perfecto.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["gota", "autoni", "suspen", "deposi", "trabaj", "crea", "apice", "perfec", "prescr", "metodo"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'checklist',
+                    badge: "Molde de papel",
+                    title: "Ajuste y encastre",
+                    instruction: "Determina las tres comprobaciones obligatorias al colocar el molde de papel para esculpir.",
+                    items: [
+                        { text: "Cierre perfecto bajo el borde libre sin luces ni huecos", correct: true },
+                        { text: "Alineación del eje central del molde con el dedo", correct: true },
+                        { text: "Continuación de la línea de los laterales naturales", correct: true },
+                        { text: "Inclinación exagerada hacia abajo para acentuar la curva", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Agrupa la ausencia de filtraciones, la dirección recta respecto a la falange y la continuidad de encastres.",
+                    explanation: "Encajar el molde sin luces, verificar la alineación y respetar los laterales garantiza el esculpido."
+                },
+                {
+                    type: 'text',
+                    badge: "Presión en Dual Forms",
+                    title: "Descenso desde cutícula",
+                    instruction: "Guía la colocación correcta de la cápsula dual rellena sobre la uña natural antes de presionar.",
+                    tutor: "Pauta el apoyo en la zona proximal y la inclinación progresiva limpiando excesos de material en bordes.",
+                    explanation: "Ubicar la cápsula, ejercer presión suave y retirar el rebose de producto evita desbordes.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["capsul", "suave", "rebose", "ubicar", "ejerce", "presio", "retira", "produc", "evita", "desbor"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'traffic',
+                    badge: "Limado de estructura",
+                    title: "Pasos de perfeccionamiento",
+                    instruction: "Marca afirmaciones correctas",
+                    items: [
+                        { text: "El limado técnico sigue una secuencia: frentes, laterales, superficie, zona de cutícula y bordes", color: "green" },
+                        { text: "Limar la zona de cutícula exige apoyar la lima a 90 grados perpendiculares sobre la piel", color: "red" },
+                        { text: "El paso de la lima spongee suaviza las rayas dejadas por limas de mayor gramaje antes del top", color: "green" },
+                        { text: "Los laterales de una estructura cuadrada deben limarse en diagonal cerrada hacia el centro", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Repasa el orden de limado para unificar frentes, paredes laterales y la zona de cutícula.",
+                    explanation: "La secuencia de limado define los laterales y suaviza la superficie con spongee."
+                },
+                {
+                    type: 'text',
+                    badge: "Técnica de relleno",
+                    title: "Retiro de levantamientos y rebalanceo",
+                    instruction: "Pauta el procedimiento paso a paso para realizar un relleno con gel sobre un crecimiento de 3 semanas.",
+                    tutor: "Ordena el retiro del top, la eliminación de bolsas de aire, la preparación del crecimiento y la nivelación.",
+                    explanation: "Realizar el desbaste del material suelto, preparar el crecimiento y aplicar el sellado logra el rebalanceo.",
+                    validation: (raw) => {
+                        const v = normalizar(raw);
+                        const roots = ["desbas", "sellad", "rebala", "realiz", "materi", "suelto", "prepar", "crecim", "aplica", "logra"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
+                },
+                {
+                    type: 'checklist',
+                    badge: "Retiro combinado",
+                    title: "Torno, acetona y aluminio",
+                    instruction: "Compila los pasos operativos para efectuar la remoción segura de un sistema soak off de soft gel.",
+                    items: [
+                        { text: "Rebajar el volumen y sellado del top coat con torno", correct: true },
+                        { text: "Colocar algodón con removedor y envolver con papel aluminio", correct: true },
+                        { text: "Esperar el tiempo de ablandado y retirar con palito de naranjo", correct: true },
+                        { text: "Arrancar el tip con alicate haciendo palanca seca", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Busca el desgastado inicial, el remojo con vapor atrapado y el raspado suave sin agredir la lámina.",
+                    explanation: "Rebajar el volumen, envolver con aluminio y retirar el material blando preserva la uña."
+                }
+            ]
+        };
+
+let currentModule = '';
+        let currentIndex = 0;
+        let attemptCount = 0;
+        let lastAudioModule = null;
+
+        // ===== MAPEO DE MÓDULOS A AUDIOS =====
+        const moduloAudioMap = {
+            'sintesis': 'mensaje1',
+            'analisis': 'mensaje2',
+            'escenarios': 'mensaje3',
+            'practica': 'mensaje4'
+        };
+
+        function startModule(id) {
+            playSound('click');
+            currentModule = id;
+            currentIndex = 0;
+            attemptCount = 0;
+            lastAudioModule = id;
+
+            // Reproducir el audio del módulo correspondiente
+            const audioKey = moduloAudioMap[id];
+            if (audioKey) {
+                playAudio(audioKey);
+            }
+
+            document.getElementById('selectionScreen').style.display = 'none';
+            document.getElementById('activityScreen').classList.add('active');
+
+            setTimeout(loadActivity, 300);
+        }
+
+        function loadActivity() {
+            attemptCount = 0;
+
+            if (currentIndex >= modules[currentModule].length) {
+                // Reproducir "lolograste.mp3" al terminar TODAS las preguntas
+                playAudio('lolograste');
+                playSound('success');
+                alert('¡Excelente! Completaste este bloque.');
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
+                return;
+            }
+
+            const data = modules[currentModule][currentIndex];
+            const container = document.getElementById('activityContainer');
+
+            const msg = `Pregunta ${currentIndex + 1} de ${modules[currentModule].length}: ${data.tutor}`;
+            document.getElementById('tutorMessage').innerText = msg;
+
+            let html = `<span class="act-badge">${data.badge}</span>
+                        <h2 class="act-title">${data.title}</h2>
+                        <p class="act-instruction">${data.instruction}</p>`;
+
+            if (data.type === 'text') {
+                html += `<textarea id="txtInput" class="student-input" placeholder="Escribe tu respuesta con tus palabras..."></textarea>`;
+            } else if (data.type === 'blanks') {
+                html += `<div style="font-size:1.2rem; line-height:2.5;">`;
+                data.blanks.forEach((b, i) => {
+                    html += `${i + 1}. <input type="text" class="fill-input" data-ans="${b}"> <br>`;
+                });
+                html += `</div>`;
+            } else if (data.type === 'traffic') {
+                data.items.forEach((item, i) => {
+                    html += `<div class="traffic-row" id="row-${i}">
+                                <span>${item.text}</span>
+                                <div style="display:flex; gap:10px;">
+                                    <div class="traffic-btn bg-green" onclick="selTraffic(${i}, 'green')"></div>
+                                    <div class="traffic-btn bg-yellow" onclick="selTraffic(${i}, 'yellow')"></div>
+                                    <div class="traffic-btn bg-red" onclick="selTraffic(${i}, 'red')"></div>
+                                </div>
+                            </div>`;
+                });
+            } else if (data.type === 'checklist') {
+                data.items.forEach((item) => {
+                    html += `<div class="checklist-item" onclick="toggleCheck(this)" data-correct="${item.correct}">
+                                <div class="check-box"></div>
+                                <span>${item.text}</span>
+                            </div>`;
+                });
+            }
+
+            html += `<div id="feedback" class="feedback-area"></div>
+                     <button id="btnCheck" class="btn-action" onclick="validate()">Verificar respuesta</button>
+                     <button class="btn-action btn-back" onclick="location.reload()">Salir al menú</button>`;
+
+            container.innerHTML = html;
+            wireUiSounds();
+        }
+
+        let trafficAns = {};
+
+        function selTraffic(idx, color) {
+            trafficAns[idx] = color;
+            const row = document.getElementById(`row-${idx}`);
+            row.querySelectorAll('.traffic-btn').forEach(b => b.classList.remove('active'));
+            row.querySelector(`.bg-${color}`).classList.add('active');
+            playSound('click');
+        }
+
+        function toggleCheck(el) {
+            el.classList.toggle('selected');
+            el.querySelector('.check-box').innerText = el.classList.contains('selected') ? '✓' : '';
+
+            if (el.classList.contains('selected')) {
+                el.style.borderColor = 'var(--ficde-naranja)';
+                el.querySelector('.check-box').style.background = 'var(--ficde-naranja)';
+                el.querySelector('.check-box').style.borderColor = 'var(--ficde-naranja)';
+                el.querySelector('.check-box').style.color = 'white';
+            } else {
+                el.style.borderColor = 'transparent';
+                el.querySelector('.check-box').style.background = 'transparent';
+                el.querySelector('.check-box').style.borderColor = '#ccc';
+            }
+
+            playSound('click');
+        }
+
+        function validate() {
+            const data = modules[currentModule][currentIndex];
+            const feedback = document.getElementById('feedback');
+            let isCorrect = false;
+
+            if (data.type === 'text') {
+                const val = document.getElementById('txtInput').value;
+                isCorrect = data.validation(val);
+            } else if (data.type === 'blanks') {
+                const inputs = document.querySelectorAll('.fill-input');
+                let hits = 0;
+                let usedAnswers = [];
+                inputs.forEach(inp => {
+                    const v = normalizar(inp.value.trim());
+                    if (v.length > 0) {
+                        if (data.anyOrder) {
+                            const matchedIdx = data.blanks.findIndex((ans, idx) => {
+                                if (usedAnswers.includes(idx)) return false;
+                                const normAns = normalizar(ans.trim());
+                                return (normAns === v || (v.length > 1 && normAns.startsWith(v.slice(0, Math.max(2, Math.min(v.length, normAns.length))))));
+                            });
+                            if (matchedIdx !== -1) {
+                                hits++;
+                                usedAnswers.push(matchedIdx);
+                            }
+                        } else {
+                            const ans = normalizar(inp.dataset.ans.trim());
+                            if (ans === v || (v.length > 1 && ans.startsWith(v.slice(0, Math.max(2, Math.min(v.length, ans.length)))))) {
+                                hits++;
+                            }
+                        }
+                    }
+                });
+                isCorrect = (hits === data.blanks.length);
+            } else if (data.type === 'traffic') {
+                let hits = 0;
+                data.items.forEach((item, i) => { if (trafficAns[i] === item.color) hits++; });
+                isCorrect = (hits === data.items.length);
+            } else if (data.type === 'checklist') {
+                let correct = true;
+                document.querySelectorAll('.checklist-item').forEach(item => {
+                    const sel = item.classList.contains('selected');
+                    const should = item.dataset.correct === 'true';
+                    if (sel !== should) correct = false;
+                });
+                isCorrect = correct;
+            }
+
+            feedback.style.display = 'block';
+
+            if (isCorrect) {
+                playAudio('correcto');
+                playSound('success');
+                feedback.className = 'feedback-area feedback-success';
+                feedback.innerHTML = `<strong>¡Muy bien!</strong><br>${data.explanation}`;
+                document.getElementById('btnCheck').innerText = 'Siguiente pregunta →';
+                document.getElementById('btnCheck').onclick = () => { currentIndex++; loadActivity(); };
+            } else {
+                attemptCount++;
+
+                if (attemptCount < 2) {
+                    playAudio('error1');
+                    feedback.className = 'feedback-area feedback-retry';
+                    feedback.innerHTML = `<strong>Buen intento.</strong> Revisá tu respuesta. Pista: ${data.tutor}`;
+                } else {
+                    playAudio('error2');
+                    feedback.className = 'feedback-area feedback-fail';
+                    feedback.innerHTML = `<strong>No pasa nada, aprendamos juntos:</strong><br>${data.explanation}`;
+                    document.getElementById('btnCheck').innerText = 'Entendido, continuar →';
+                    document.getElementById('btnCheck').onclick = () => { currentIndex++; loadActivity(); };
+                }
+            }
+        }
+
+        function replayTutorMessage() {
+            // Replay del último audio de módulo reproducido
+            if (lastAudioModule) {
+                const audioKey = moduloAudioMap[lastAudioModule];
+                if (audioKey) {
+                    playAudio(audioKey);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
