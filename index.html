@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espacio de Repaso - MÓDULO: SISTEMAS ARTIFICIALES DE UÑAS</title>
+    <title>Espacio de Repaso - MOD 2 REFLEXOLOGÍA MANUAL Y TÉCNICAS COMPLEMENTARIAS</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -383,7 +383,7 @@
                 <img src="logo.png" alt="FICDE" class="logo-img" onerror="this.style.display='none'; document.getElementById('altLogo').style.display='block'">
                 <h2 id="altLogo" style="display:none; color:white; font-weight:800;">FICDE</h2>
             </div>
-            <div class="module-tag">Módulo: SISTEMAS ARTIFICIALES DE UÑAS</div>
+            <div class="module-tag">Módulo: Reflexología Manual y Técnicas Complementarias</div>
         </header>
 
         <div id="selectionScreen">
@@ -399,25 +399,25 @@
                 <div class="block-card" onclick="startModule('sintesis')">
                     <div class="block-icon">🧠</div>
                     <div class="block-title">Síntesis</div>
-                    <div class="block-desc">sistemas artificiales, soft gel, acrigel, polygel y builder gel, preparación química, técnicas de esculpido y moldes, arquitectura y ápice, limado técnico, mantenimiento y relleno.</div>
+                    <div class="block-desc">Fundamentos de la reflexología manual, anatomía y mapas reflejos de la mano, beneficios, principales técnicas de presión y masaje, higiene y ergonomía profesional.</div>
                 </div>
 
                 <div class="block-card" onclick="startModule('analisis')">
                     <div class="block-icon">🔍</div>
                     <div class="block-title">Análisis Crítico</div>
-                    <div class="block-desc">errores de preparación y adherencia, sobrelimado, fallas en tips y arquitectura, exceso de producto e imperfecciones, problemas de polimerización, errores en el relleno y retiro agresivo.</div>
+                    <div class="block-desc">Errores y riesgos en reflexología manual relacionados con evaluación y contraindicaciones, higiene y ergonomía, aplicación incorrecta de las técnicas, presencia de lesiones o procesos agudos y criterios de derivación profesional.</div>
                 </div>
 
                 <div class="block-card" onclick="startModule('escenarios')">
                     <div class="block-icon">🎬</div>
                     <div class="block-title">Escenarios</div>
-                    <div class="block-desc">atención según características y alteraciones ungueales, adaptación y corrección de sistemas, reconstrucción de arquitectura, mantenimiento, relleno, remoción segura y ajuste de curvatura.</div>
+                    <div class="block-desc">Abordaje práctico de diferentes situaciones en reflexología manual, adaptando la sesión a las características y necesidades del consultante e incorporando recomendaciones posteriores.</div>
                 </div>
 
                 <div class="block-card" onclick="startModule('practica')">
                     <div class="block-icon">⚡</div>
                     <div class="block-title">Práctica</div>
-                    <div class="block-desc">preparación y sanitización, colocación de soft gel, aplicación de preparadores, moldeado con polygel y gel constructor, técnicas de esculpido, limado técnico, relleno y retiro controlado.</div>
+                    <div class="block-desc">Preparación e higiene para la sesión de reflexología manual, aplicación de maniobras de movilización, presión, masaje y técnicas específicas, integración de secuencias y cierre de la práctica.</div>
                 </div>
             </div>
         </div>
@@ -522,131 +522,131 @@
             sintesis: [
                 {
                     type: 'text',
-                    badge: "Sistemas artificiales",
-                    title: "Concepto y propósito",
-                    instruction: "Define el concepto de los sistemas artificiales de uñas indicando su objetivo de fortalecer y embellecer la uña natural.",
-                    tutor: "Considera que los productos específicos otorgan mayor durabilidad respetando la salud ungueal.",
-                    explanation: "Los sistemas artificiales aportan mayor resistencia y durabilidad preservando la salud de la uña natural.",
+                    badge: "Generalidades terapéuticas",
+                    title: "Concepto y microsistema",
+                    instruction: "Define la reflexología manual explicando cómo proyecta la anatomía corporal en las manos para la homeostasis.",
+                    tutor: "Considera que la mano actúa como un mapa somatotópico reflejo de todo el organismo humano.",
+                    explanation: "La reflexología manual utiliza el microsistema palmar para proyectar el cuerpo y restaurar la homeostasis mediante la proyección refleja.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["sistem", "resist", "salud", "artifi", "aporta", "mayor", "durabi", "preser", "natura", "define"];
+                        const roots = ["micros", "proyec", "homeos", "reflex", "manual", "utiliz", "palmar", "cuerpo", "restau", "median"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'text',
-                    badge: "Tecnología Soft Gel",
-                    title: "Características y tips full cover",
-                    instruction: "Clasifica las ventajas estructurales de los tips de soft gel frente al plástico tradicional.",
-                    tutor: "Analiza el material cien por ciento gel, la cobertura completa y la facilidad de disolución con acetona.",
-                    explanation: "Los tips de gel flexible brindan cobertura full cover y facilitan una rápida remoción con solvente.",
+                    badge: "Propósitos de la técnica",
+                    title: "Objetivos y beneficios",
+                    instruction: "Clasifica los principales beneficios estéticos y fisiológicos que aporta la estimulación de zonas reflejas manuales.",
+                    tutor: "Repasa la disminución de la sobrecarga muscular, el alivio del estrés y la mejora del flujo sanguíneo local.",
+                    explanation: "La estimulación manual reduce la tensión acumulada, mitiga el estrés cotidiano y activa la circulación sanguínea local.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["flexib", "full", "cover", "remoci", "tips", "brinda", "cobert", "facili", "rapida", "solven"];
+                        const roots = ["tensio", "estres", "circul", "estimu", "manual", "reduce", "acumul", "mitiga", "cotidi", "activa"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'checklist',
-                    badge: "Preparación química",
-                    title: "Deshidratador e imprimante",
-                    instruction: "Selecciona las tres funciones principales que cumplen los preparadores químicos sobre la lámina ungueal.",
+                    badge: "Estructura osteomuscular",
+                    title: "Anatomía de la mano",
+                    instruction: "Selecciona las tres regiones óseas que conforman la estructura anatómica de la mano con sus 27 huesos.",
                     items: [
-                        { text: "Reducir temporalmente la humedad y grasitud", correct: true },
-                        { text: "Favorecer la adherencia del producto artificial", correct: true },
-                        { text: "Equilibrar el pH de la superficie ungueal", correct: true },
-                        { text: "Adelgazar excesivamente las capas queratinizadas", correct: false }
+                        { text: "Carpo con ocho huesos en la muñeca", correct: true },
+                        { text: "Metacarpo con cinco huesos en la palma", correct: true },
+                        { text: "Falanges con catorce huesos en los dedos", correct: true },
+                        { text: "Tarso con siete huesos estabilizadores", correct: false }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Identifica la acción del deshidratador para remover oleosidad y del imprimante para fijar la estructura.",
-                    explanation: "Los preparadores eliminan la humedad, equilibran el pH y garantizan la adherencia del material."
+                    tutor: "Agrupa las secciones que van desde la articulación de la muñeca hasta los extremos dactilares.",
+                    explanation: "La mano comprende el carpo en la muñeca, el metacarpo en la palma y las falanges en los dedos."
                 },
                 {
                     type: 'text',
-                    badge: "Material Polygel",
-                    title: "Propiedades y viscosidad",
-                    instruction: "Detalla las características del polygel respecto a su consistencia estable y control de moldeado.",
-                    tutor: "Observa que permite distribuir el producto sin prisa antes de llevar la mano a la cabina.",
-                    explanation: "El polygel ofrece gran estabilidad para un moldeado preciso previo al curado en lámpara.",
+                    badge: "Referencias de ubicación",
+                    title: "Líneas de orientación",
+                    instruction: "Detalla las tres líneas transversales de orientación que guían la localización de órganos en la palma.",
+                    tutor: "Ubica las líneas en la base de los nudillos, mitad de la palma y unión con la muñeca.",
+                    explanation: "Las referencias transversales comprenden la línea del diafragma, la línea de la cintura y la línea pélvica.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["polyge", "estabi", "moldea", "ofrece", "gran", "precis", "previo", "curado", "lampar", "detall"];
+                        const roots = ["diafra", "cintur", "pelvic", "refere", "transv", "compre", "linea", "detall", "tres", "lineas"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'blanks',
                     anyOrder: false,
-                    badge: "Gel constructor",
-                    title: "Funciones del Builder Gel",
-                    instruction: "Completar la frase<br><br>El gel constructor o builder gel permite ________ la uña natural, construir ___________ y crear la arquitectura del _____.",
-                    blanks: ["reforzar", "extensiones", "ápice"],
-                    tutor: "Recuerda las facultades de este gel viscoso para generar volumen, longitud y zonas de resistencia.",
-                    explanation: "El gel constructor permite reforzar la lámina, estructurar extensiones y moldear el ápice resistente."
+                    badge: "Cartografía refleja",
+                    title: "Mapas de palmas y dorso",
+                    instruction: "Completar la frase<br><br>Los dedos reflejan la cabeza y sentidos, la palma superior aloja los ________, la central el sistema _________ y la base los intestinos.",
+                    blanks: ["pulmones", "digestivo"],
+                    tutor: "Recuerda la distribución somatotópica de los órganos desde la zona superior de los nudillos hasta la muñeca.",
+                    explanation: "La palma superior refleja los pulmones, la zona media abarca el sistema digestivo y la base aloja las áreas intestinales."
                 },
                 {
                     type: 'text',
-                    badge: "Esculpido con molde",
-                    title: "Soporte de papel",
-                    instruction: "Expone la función del molde de papel descartable como guía de construcción en uñas esculpidas.",
-                    tutor: "Considera cómo se posiciona debajo del borde libre para dar dirección, forma y longitud a la extensión.",
-                    explanation: "Colocar el molde bajo el borde libre sirve de guía para definir la alineación de la extensión.",
+                    badge: "Maniobras fundamentales",
+                    title: "Técnica de camino de gusano",
+                    instruction: "Expone el mecanismo de ejecución de la caminata de oruga utilizando la flexión y extensión del pulgar.",
+                    tutor: "Enfócate en los pequeños movimientos rítmicos del pulgar que presionan sin deslizarse sobre la piel.",
+                    explanation: "La caminata de oruga realiza pequeñas fases de flexión articular para lograr un avance controlado y preciso.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["molde", "guia", "alinea", "coloca", "bajo", "borde", "libre", "sirve", "defini", "extens"];
+                        const roots = ["oruga", "flexio", "avance", "camina", "realiz", "pequen", "fases", "articu", "lograr", "contro"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'checklist',
-                    badge: "Cápsulas Dual Forms",
-                    title: "Moldes reutilizables",
-                    instruction: "Identifica las tres ventajas operativas de la técnica dual forms al construir extensiones.",
+                    badge: "Presiones específicas",
+                    title: "Presión fija y rotación",
+                    instruction: "Identifica las tres características técnicas correspondientes a las maniobras de presión fija y rotación circular.",
                     items: [
-                        { text: "Optimización del tiempo de limado de superficie", correct: true },
-                        { text: "Modelado interno del producto antes de posicionar", correct: true },
-                        { text: "Obtención de una superficie uniforme y brillante", correct: true },
-                        { text: "Eliminación completa de la preparación mecánica inicial", correct: false }
+                        { text: "Presión fija mantenida durante 12 segundos repetida 3 veces", correct: true },
+                        { text: "Rotación circular de 30 a 60 segundos por zona", correct: true },
+                        { text: "Contacto permanente sin perder el roce con la piel", correct: true },
+                        { text: "Percusión enérgica con el borde cubital de la mano", correct: false }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Busca las propiedades del molde sintético que forma la estructura lisa en su interior.",
-                    explanation: "Las cápsulas reducen el limado, facilitan el modelado interno y logran un acabado uniforme."
+                    tutor: "Busca las pautas de tiempo, ritmo y mantenimiento del contacto directo durante la estimulación.",
+                    explanation: "La técnica combina presión fija temporal, movimientos de rotación sostenidos y contacto continuo sobre la piel."
                 },
                 {
                     type: 'text',
-                    badge: "Arquitectura ungueal",
-                    title: "Zona de tensión y ápice",
-                    instruction: "Describe la importancia de la correcta ubicación del ápice en el punto de mayor resistencia de la uña.",
-                    tutor: "Localiza el centro de masa necesario para amortiguar impactos y evitar fracturas en el borde libre.",
-                    explanation: "Ubicar el ápice en la zona de tensión brinda el equilibrio estructural que evita roturas.",
+                    badge: "Variantes de masaje",
+                    title: "Deslizamiento y amasamiento",
+                    instruction: "Describe las diferencias operativas entre la técnica de deslizamiento relajante y el amasamiento profundo en las eminencias.",
+                    tutor: "Compara el movimiento suave de preparación sobre la palma con la compresión muscular en zona tenar e hipotenar.",
+                    explanation: "El deslizamiento aporta calma inicial mientras el amasamiento libera la tensión profunda en las eminencias palmares.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["apice", "tensio", "equili", "ubicar", "zona", "brinda", "estruc", "evita", "rotura", "descri"];
+                        const roots = ["desliz", "amasam", "eminen", "aporta", "calma", "inicia", "mientr", "libera", "tensio", "profun"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'traffic',
-                    badge: "Limado técnico",
-                    title: "Herramientas y gramaje",
+                    badge: "Normas sanitarias",
+                    title: "Higiene profesional y gabinete",
                     instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: "El limado técnico busca perfeccionar la arquitectura sin desgastar la lámina ungueal natural", color: "green" },
-                        { text: "Aplicar mayor presión con limas de grano grueso es la forma correcta de acelerar el trabajo", color: "red" },
-                        { text: "Las limas spongee o buffer permiten suavizar la superficie antes del pulido o sellado", color: "green" },
-                        { text: "El limado de laterales debe eliminar por completo las paredes de encastre de la uña", color: "red" }
+                        { text: "El lavado de manos del terapeuta es obligatorio antes y después de atender a cada consultante", color: "green" },
+                        { text: "Se recomienda trabajar con uñas largas para lograr mayor precisión en la técnica de oruga", color: "red" },
+                        { text: "Los accesorios metálicos como anillos y relojes deben retirarse antes de iniciar la sesión", color: "green" },
+                        { text: "Las toallas de trabajo pueden reutilizarse entre diferentes pacientes si no muestran manchas", color: "red" }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Contrasta el perfeccionamiento controlado del producto con el daño por desgaste excesivo.",
-                    explanation: "El limado suave perfecciona la estructura preservando la salud de la uña natural."
+                    tutor: "Analiza las medidas de asepsia personal y del espacio que protegen la salud en la práctica profesional.",
+                    explanation: "Mantener higiene en el lavado, retirar accesorios y renovar toallas garantiza una atención segura."
                 },
                 {
                     type: 'text',
-                    badge: "Mantenimiento ungueal",
-                    title: "Concepto de relleno",
-                    instruction: "Sintetiza el objetivo del procedimiento de mantenimiento ante el crecimiento de la uña natural.",
-                    tutor: "Analiza que no se limita a cubrir la franja desnudada sino a reequilibrar la estructura completa.",
-                    explanation: "Realizar el mantenimiento reubica la arquitectura de soporte desplazada por el crecimiento.",
+                    badge: "Salud ocupacional",
+                    title: "Ergonomía del terapeuta",
+                    instruction: "Sintetiza las pautas posturales y de prevención de lesiones que debe adoptar el profesional al trabajar sentado.",
+                    tutor: "Considera la alineación de la espalda, el ángulo de 90° en rodillas y el uso del peso corporal en vez de forzar dedos.",
+                    explanation: "Cuidar la postura y mantener los codos próximos previene la aparición de tendinitis laboral.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["manten", "arquit", "crecim", "realiz", "reubic", "soport", "despla", "sintet", "objeti", "proced"];
+                        const roots = ["postur", "codos", "tendin", "cuidar", "manten", "proxim", "previe", "aparic", "labora", "sintet"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 }
@@ -654,131 +654,131 @@
             analisis: [
                 {
                     type: 'text',
-                    badge: "Sobrelimado de la lámina",
-                    title: "Adelgazamiento inútil",
-                    instruction: "Examina las graves consecuencias de desbastar en exceso la uña natural buscando falsa adherencia.",
-                    tutor: "Reflexiona sobre la.",
-                    explanation: "Incurrir en el sobrelimado genera un severo debilitamiento provocando dolor y alta sensibilidad.",
+                    badge: "Evaluación omitida",
+                    title: "Riesgos en contraindicaciones",
+                    instruction: "Examina los peligros de aplicar reflexología manual en un paciente con fracturas recientes o heridas abiertas.",
+                    tutor: "Analiza la posibilidad de agravar lesiones óseas o propiciar la entrada de patógenos en piel abierta.",
+                    explanation: "Ignorar las contraindicaciones al trabajar sobre fracturas o heridas abiertas propicia graves infecciones.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["sobrel", "debili", "sensib", "incurr", "genera", "severo", "provoc", "dolor", "alta", "examin"];
+                        const roots = ["contra", "fractu", "infecc", "ignora", "trabaj", "herida", "abiert", "propic", "graves", "examin"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'text',
-                    badge: "Desprendimiento prematuro",
-                    title: "Fallas en preparación química",
-                    instruction: "Evalúa los factores que causan la pérdida de adherencia cuando se omiten los limpiadores y deshidratadores.",
-                    tutor: "Considera el efecto barrera que genera la grasa natural de la placa si no se remueve adecuadamente.",
-                    explanation: "La presencia de humedad y oleosidad residual provoca el desprendimiento precoz del sistema.",
+                    badge: "Dosificación de fuerza",
+                    title: "Consecuencias de presión excesiva",
+                    instruction: "Evalúa los efectos negativos de aplicar una presión desmedida que supere el umbral de dolor del consultante.",
+                    tutor: "Reflexiona sobre la respuesta de contracción muscular involuntaria que bloquea los beneficios de la sesión.",
+                    explanation: "Provocar dolor por exceso de fuerza genera sobreestimulación y desencadena una respuesta de defensa.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["despre", "humeda", "oleosi", "presen", "residu", "provoc", "precoz", "sistem", "evalua", "factor"];
+                        const roots = ["dolor", "sobree", "defens", "provoc", "exceso", "fuerza", "genera", "desenc", "respue", "evalua"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'checklist',
-                    badge: "Contacto con la piel",
-                    title: "Riesgos de quemadura",
-                    instruction: "Escoge los problemas derivados de permitir que el gel o imprimante toque los pliegues cutáneos.",
+                    badge: "Postura inadecuada",
+                    title: "Vicios ergonómicos",
+                    instruction: "Escoge las tres fallas ergonómicas más comunes que causan fatiga y lesiones en las articulaciones del terapeuta.",
                     items: [
-                        { text: "Sensibilización y posible dermatitis de contacto", correct: true },
-                        { text: "Levantamientos en la zona proximal de la cutícula", correct: true },
-                        { text: "Filtración de humedad entre el producto y la piel", correct: true },
-                        { text: "Aumento automático de la flexibilidad de la uña", correct: false }
+                        { text: "Encorvar la espalda sobre la zona de trabajo", correct: true },
+                        { text: "Generar la fuerza de presión únicamente con los pulgares", correct: true },
+                        { text: "Mantener los hombros elevados y en tensión", correct: true },
+                        { text: "Trabajar con los codos pegados al torso con apoyo neutro", correct: false }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Identifica los efectos adversos biológicos y mecánicos del contacto químico no deseado.",
-                    explanation: "Tocar la piel produce sensibilización, genera levantamientos y favorece la filtración de agua."
+                    tutor: "Identifica las posturas forzadas que sobrecargan la columna y desgastan las pequeñas articulaciones dactilares.",
+                    explanation: "Encorvar la columna, presionar solo con pulgares y tensionar hombros deteriora la salud profesional."
                 },
                 {
                     type: 'text',
-                    badge: "Elección de tips",
-                    title: "Talle y curvatura",
-                    instruction: "Explica las fallas estructurales provocadas por forzar un tip más estrecho que el ancho del lecho.",
-                    tutor: "Analiza el efecto de tensión constante que busca volver a su forma original desprendiéndose de los laterales.",
-                    explanation: "Seleccionar un talle chico ejerce presión excesiva que termina causando el despegue lateral.",
+                    badge: "Fallas de asepsia",
+                    title: "Presentación e higiene personal",
+                    instruction: "Explica los problemas operativos y de bioseguridad derivados de realizar masajes manuales con uñas largas o filosas.",
+                    tutor: "Contempla el riesgo de clavar los bordes en la piel del paciente e impedir el ángulo correcto del pulgar.",
+                    explanation: "Mantener uñas largas ocasiona molestias directas y puede provocar lesiones en la piel.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["talle", "presio", "despeg", "selecc", "chico", "ejerce", "excesi", "termin", "causan", "latera"];
+                        const roots = ["unas", "molest", "lesion", "manten", "largas", "ocasio", "direct", "puede", "provoc", "piel"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'blanks',
                     anyOrder: false,
-                    badge: "Desbalance estructural",
-                    title: "Desplazamiento del ápice",
-                    instruction: "Completar la frase<br><br>Un ápice demasiado __________ deja desprotegida la zona de tensión, mientras que un ápice muy ________ recarga de peso la cutícula.",
-                    blanks: ["adelantado", "atrasado"],
-                    tutor: "Recuerda cómo la mala distribución del volumen desplaza el punto de quiebre o sobrecarga el inicio.",
-                    explanation: "Ubicar el ápice adelantado desprotege el centro y ponerlo atrasado genera desbalance proximal."
+                    badge: "Errores técnicos",
+                    title: "Desviación en caminata de oruga",
+                    instruction: "Completar la frase<br><br>Deslizar el dedo sobre la piel en lugar de realizar la _______ genera pérdida de fricción y ___________ en el estímulo _______.",
+                    blanks: ["flexión", "imprecisión", "reflejo"],
+                    tutor: "Recuerda que la técnica exige avanzar mediante pequeñas articulaciones sin resbalar sobre el tejido.",
+                    explanation: "Sustituir la flexión por un deslizamiento causa imprecisión y altera el estímulo reflejo buscado."
                 },
                 {
                     type: 'text',
-                    badge: "Errores en Dual Forms",
-                    title: "Burbujas y filtraciones",
-                    instruction: "Juzga las causas operativas que generan vacíos de aire al asentar las cápsulas sobre la uña.",
-                    tutor: "Observa el apoyo brusco en lugar de un asentamiento progresivo a 45 grados desde la cutícula.",
-                    explanation: "Presionar sin control atrapa burbujas internas dejando zonas de vacuidad que arruinan la adherencia.",
+                    badge: "Mala praxis en gancho",
+                    title: "Tracción y fuerza desmedida",
+                    instruction: "Juzga las complicaciones causadas al ejecutar la técnica de gancho mediante tirones bruscos sobre el tejido.",
+                    tutor: "Observa cómo la tracción violenta daña las estructuras superficiales y produce sensaciones desagradables.",
+                    explanation: "Realizar el gancho mediante tirones bruscos trauma el tejido produciendo rechazo en el consultante.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["burbuj", "vacuid", "adhere", "presio", "contro", "atrapa", "intern", "dejand", "zonas", "arruin"];
+                        const roots = ["gancho", "tirone", "tejido", "realiz", "median", "brusco", "trauma", "produc", "rechaz", "consul"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'checklist',
-                    badge: "Exceso de material",
-                    title: "Problemas de grosor",
-                    instruction: "Menciona los inconvenientes provocados por aplicar capas de gel constructor demasiado gruesas.",
+                    badge: "Faltas en el gabinete",
+                    title: "Desatención del entorno",
+                    instruction: "Señala los tres factores del espacio de trabajo que comprometen la bioseguridad y el confort en la atención.",
                     items: [
-                        { text: "Picos de calor extremos durante la fotocuración", correct: true },
-                        { text: "Curado incompleto en la capa interna del producto", correct: true },
-                        { text: "Estructura tosca que requiere limado prolongado", correct: true },
-                        { text: "Incremento de la flexibilidad natural de la lámina", correct: false }
+                        { text: "Omitir la desinfección del mobiliario entre sesiones", correct: true },
+                        { text: "Falta de ventilación adecuada en el ambiente", correct: true },
+                        { text: "Mantener toallas usadas sobre la camilla", correct: true },
+                        { text: "Usar aire acondicionado con temperatura agradable", correct: false }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Localiza las consecuencias térmicas, químicas y estéticas de no controlar el volumen depositado.",
-                    explanation: "El grosor excesivo causa picos de calor, curado incompleto y exige un limado agotador."
+                    tutor: "Agrupa las omisiones de limpieza de superficies, renovación de aire y cambio de blancos textiles.",
+                    explanation: "Omitir la desinfección, descuidar la ventilación y conservar toallas usadas vulnera la bioseguridad."
                 },
                 {
                     type: 'text',
-                    badge: "Pico térmico",
-                    title: "Calor en cabina",
-                    instruction: "Argumenta por qué la polimerización rápida del gel fotoiniciado puede causar sensación de quemadura.",
-                    tutor: "Contempla la liberación de energía calórica durante la reacción de entrecruzamiento de las cadenas de polímero.",
-                    explanation: "La reacción exotérmica durante el fotocurado genera un pico térmico que provoca quemadura.",
+                    badge: "Límites de actuación",
+                    title: "Omisión de derivación médica",
+                    instruction: "Argumenta la gravedad de continuar el tratamiento en un paciente con dolor persistente o síntomas neurológicos agudos.",
+                    tutor: "Considera el rol complementario de la técnica y la obligación ética de recomendar atención médica especializada.",
+                    explanation: "Ignorar síntomas graves e ignorar la derivación médica retrasa la obtención de un diagnóstico oportuno.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["fotocu", "exoter", "quemad", "reacci", "durant", "genera", "pico", "termic", "provoc", "argume"];
+                        const roots = ["sintom", "deriva", "diagno", "ignora", "graves", "medica", "retras", "obtenc", "oportu", "argume"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'traffic',
-                    badge: "Relleno incorrecto",
-                    title: "Producto sobre desprendimientos",
+                    badge: "Procesos agudos",
+                    title: "Inflamación y artritis",
                     instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: "Aplicar gel nuevo sobre zonas levantadas atrapa humedad y favorece el desarrollo de bacterias", color: "green" },
-                        { text: "Los desprendimientos previos pueden reestructurarse agregando abundante imprimante ácido encima", color: "red" },
-                        { text: "Retirar el producto desprendido antes de rellenar es obligatorio para garantizar la salud ungueal", color: "green" },
-                        { text: "Cubrir una zona verdosa con gel oscuro resuelve la alteración sin necesidad de retirar la extensión", color: "red" }
+                        { text: "La presencia de artritis en fase de brote agudo contraindica la estimulación manual sobre las articulaciones", color: "green" },
+                        { text: "Es aconsejable aplicar masajes profundos sobre zonas con flebitis o trombosis venosa activa", color: "red" },
+                        { text: "Las enfermedades febriles exigen suspender la sesión y priorizar el reposo y tratamiento médico", color: "green" },
+                        { text: "Ante dolores de causa desconocida el reflexólogo debe prescribir analgésicos de venta libre", color: "red" }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Asocia la remoción total del material suelto con la prevención de proliferación bacteriana.",
-                    explanation: "Retirar el material levantado previene la acumulación de humedad y posibles infecciones."
+                    tutor: "Contrasta los estados inflamatorios y febriles que requieren suspensión con las conductas no permitidas.",
+                    explanation: "Respetar la artritis en brote, suspender ante fiebre y evitar prescribir fármacos resguarda al paciente."
                 },
                 {
                     type: 'text',
-                    badge: "Retiro agresivo",
-                    title: "Desgastado con torno",
-                    instruction: "Sopesa los riesgos de intentar eliminar la totalidad del producto artificial utilizando únicamente fresas mecánicas.",
-                    tutor: "Considera el peligro de tocar la lámina viva y la recomendación de combinar torno con solventes.",
-                    explanation: "Abusar del desbaste con torno causa agresión mecánica, siendo clave recurrir al ablandado químico.",
+                    badge: "Fallas de ritmo",
+                    title: "Inconstancia en masajes",
+                    instruction: "Sopesa las consecuencias de variar bruscamente la velocidad y acelerar la frecuencia en las maniobras de rotación.",
+                    tutor: "Analiza cómo los movimientos acelerados desordenan la respuesta del sistema nervioso impidiendo la calma.",
+                    explanation: "Acelerar la rotación y modificar la velocidad genera una alteración que arruina el estado de relajación.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["desbas", "agresi", "abland", "abusar", "torno", "causa", "mecani", "siendo", "clave", "recurr"];
+                        const roots = ["rotaci", "veloci", "altera", "aceler", "modifi", "genera", "arruin", "estado", "relaja", "sopesa"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 }
@@ -786,272 +786,273 @@
             escenarios: [
                 {
                     type: 'text',
-                    badge: "Uñas mordidas",
-                    title: "Adaptación inicial corta",
-                    instruction: "Plantea el protocolo de reconstrucción para una clienta con onicofagia severa y sin borde libre.",
-                    tutor: "Considera el uso de estructuras cortas y un ajuste minucioso del molde sin invadir la piel dañada.",
-                    explanation: "Tratar la onicofagia requiere una extensión corta y una cuidadosa adaptación del molde.",
+                    badge: "Usuario informático",
+                    title: "Fatiga por uso de teclado",
+                    instruction: "Plantea un plan de trabajo reflejo para una ejecutiva que padece rigidez en manos por tecleo prolongado.",
+                    tutor: "Considera el énfasis en movilizaciones de muñeca, amasamiento tenar y caminata en zona de columna.",
+                    explanation: "Combatir la rigidez del tecleo requiere amasamiento en la eminencia tenar y estiramientos articulares.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["onicof", "corta", "adapta", "tratar", "requie", "extens", "cuidad", "molde", "plante", "protoc"];
+                        const roots = ["rigide", "amasam", "eminen", "combat", "tecleo", "requie", "tenar", "estira", "articu", "plante"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'traffic',
-                    badge: "Uña convexa",
-                    title: "Perfiles y curvatura",
+                    badge: "Alteraciones del descanso",
+                    title: "Abordaje del insomnio",
                     instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: "En uñas convexas es necesario adaptar la curvatura del tip para evitar levantamientos en la cutícula", color: "green" },
-                        { text: "Colocar un tip estándar plano sobre una uña muy convexa garantiza una adhesión perfecta sin tensión", color: "red" },
-                        { text: "Reducir ligeramente el borde libre promueve una mejor asentación de la extensión sobre el lecho", color: "green" },
-                        { text: "Las uñas convexas deben rellenarse únicamente con capas gruesas de acrílico sin limado previo", color: "red" }
+                        { text: "Iniciar la sesión por la mano izquierda a ritmo pausado favorece la inducción a un descanso profundo", color: "green" },
+                        { text: "Aplicar presiones bruscas y rápidas ayuda a activar al paciente antes de dormir", color: "red" },
+                        { text: "La estimulación suave del punto reflejo del plexo solar reduce la hiperactividad mental", color: "green" },
+                        { text: "El tratamiento reflejo sustituye de forma definitiva la medicación para trastornos graves del sueño", color: "red" }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Evalúa la selección de tips con perfiles pronunciados y el control de espacios en la zona proximal.",
-                    explanation: "Adaptar el perfil del tip a la uña convexa evita tensiones y levantamientos en cutícula."
+                    tutor: "Evalúa las maniobras sedantes y el orden de trabajo que preparan al organismo para el sueño.",
+                    explanation: "Comenzar por la mano izquierda y estimular el plexo solar promueve el descanso nocturno."
                 },
                 {
                     type: 'text',
-                    badge: "Hiperhidrosis",
-                    title: "Adherencia en manos sudorosas",
-                    instruction: "Diseña una estrategia de preparación química para una clienta cuya piel presenta sudoración constante.",
-                    tutor: "Coordina la doble aplicación de nail prep e imprimantes sin ácido para contrarrestar la humedad celular.",
-                    explanation: "Ante la hiperhidrosis se aplica doble deshidratador para lograr un refuerzo efectivo de adherencia.",
+                    badge: "Malestar craneal",
+                    title: "Cefalea de origen tensional",
+                    instruction: "Diseña una secuencia corta para atenuar la tensión muscular asociada a cefaleas tensionales frecuentes.",
+                    tutor: "Coordina la estimulación en la yema del pulgar, la cara lateral de la falange y la zona de cabeza.",
+                    explanation: "Trabajar la yema del pulgar y el reflejo de cervicales colabora en la atenuación del malestar.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["hiperh", "deshid", "refuer", "ante", "aplica", "doble", "lograr", "efecti", "adhere", "disena"];
+                        const roots = ["pulgar", "cervic", "atenua", "trabaj", "yema", "reflej", "colabo", "malest", "disena", "secuen"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'checklist',
-                    badge: "Lámina frágil",
-                    title: "Refuerzo y protección",
-                    instruction: "Puntualiza las tres decisiones técnicas para proteger una uña natural delgada y quebradiza.",
+                    badge: "Preparación del consultante",
+                    title: "Retiro de elementos y entrevista",
+                    instruction: "Puntualiza las acciones iniciales que debes realizar con un consultante nuevo antes de comenzar la sesión.",
                     items: [
-                        { text: "Selección de un sistema flexible como soft gel o rubber", correct: true },
-                        { text: "Limado de preparación ultra suave con grano fino", correct: true },
-                        { text: "Evitación de estiramientos o longitudes extremas", correct: true },
-                        { text: "Desbaste intenso de la superficie con fresas de carburo", correct: false }
+                        { text: "Solicitar el retiro de anillos", correct: true },
+                        { text: "pulseras y relojes", correct: true },
+                        { text: "Realizar una breve entrevista sobre su estado general", correct: true },
+                        { text: "Explicar el procedimiento y obtener su consentimiento", correct: true },
+                        { text: "Iniciar presiones profundas de inmediato sin consultar", correct: false }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Busca las alternativas que amortiguan impactos y previenen el quiebre de la lámina sensibilizada.",
-                    explanation: "Aplicar un gel flexible, realizar un limado suave y evitar largos extremos protege la uña."
+                    tutor: "Busca los pasos de acondicionamiento físico, evaluación inicial y acuerdo informado de la persona.",
+                    explanation: "Solicitar el retiro de accesorios, efectuar la entrevista y confirmar el consentimiento formaliza la recepción."
                 },
                 {
                     type: 'text',
-                    badge: "Alineación desviada",
-                    title: "Corrección del eje",
-                    instruction: "Ilustra la técnica de alineación del molde o tip cuando la uña natural presenta un crecimiento inclinado.",
-                    tutor: "Detalla cómo guiarse por el eje central de la falange en lugar de seguir la inclinación del borde libre.",
-                    explanation: "Ajustar la alineación respecto al eje del dedo corrige la desviación devolviendo simetría.",
+                    badge: "Tensión emocional",
+                    title: "Manejo de ansiedad leve",
+                    instruction: "Ilustra la combinación de técnicas manuales y respiratorias aplicables a una persona con estados de estrés.",
+                    tutor: "Asocia maniobras suaves en la palma central con ejercicios de inhalación profunda guiada.",
+                    explanation: "Moderar la ansiedad mediante respiración guiada y presiones suaves restaura la calma emocional.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["alinea", "simetr", "ajusta", "respec", "dedo", "corrig", "desvia", "devolv", "ilustr", "tecnic"];
+                        const roots = ["ansied", "respir", "calma", "modera", "median", "guiada", "presio", "suaves", "restau", "emocio"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'traffic',
-                    badge: "Impacto y quebradura",
-                    title: "Reconstrucción de zona de tensión",
+                    badge: "Trabajo artesanal",
+                    title: "Manos cansadas por tareas",
                     instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: "Ante una rotura con dolor en la zona de tensión se debe retirar suavemente el producto y desinfectar", color: "green" },
-                        { text: "Si existe herida sangrante debajo de la uña quebrada es seguro aplicar polygel sobre la lesión abierta", color: "red" },
-                        { text: "Estabilizar el área con una capa delgada de gel protector ayuda a curar el lecho lastimado sin sangrado", color: "green" },
-                        { text: "Es recomendable limar con fuerza sobre el lecho expuesto para alisar la fisura inmediatamente", color: "red" }
+                        { text: "La técnica de deslizamiento con crema ayuda a preparar los tejidos fatigados por tareas manuales", color: "green" },
+                        { text: "El amasamiento de los músculos de la palma debe realizarse con fuerza punzante e hiriente", color: "red" },
+                        { text: "Las movilizaciones pasivas de dedos ayudan a soltar la rigidez acumulada en las articulaciones", color: "green" },
+                        { text: "Es obligatorio omitir el tratamiento si las manos presentan cansancio muscular ordinario", color: "red" }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Asocia la suspensión del servicio sobre piel herida con la prevención de lesiones mayores.",
-                    explanation: "Retirar el producto dañado y sanitizar el lecho expuesto evita complicaciones e infecciones."
+                    tutor: "Observa la preparación con deslizamiento y la flexibilización suave en manos sobrecargadas.",
+                    explanation: "Aplicar deslizamiento inicial y movilizar dedos reconforta las manos fatigadas por el trabajo."
                 },
                 {
                     type: 'text',
-                    badge: "Evaluación de servicio",
-                    title: "Criterio de relleno o retiro",
-                    instruction: "Desglosa los criterios clínicos para decidir si una estructura de 4 semanas debe rellenarse o retirarse.",
-                    tutor: "Analiza la presencia de levantamientos masivos, cambio de color o desplazamiento completo del ápice.",
-                    explanation: "La evaluación del estado general define si procede el mantenimiento o corresponde el retiro total.",
+                    badge: "Protocolo funcional",
+                    title: "Secuencia para sistema digestivo",
+                    instruction: "Desglosa el recorrido reflejo sugerido para estimular el tránsito intestinal en una persona con lentitud digestiva.",
+                    tutor: "Inicia en la base del pulgar, desciende por la zona media palmar y recorre la franja inferior hacia la muñeca.",
+                    explanation: "Estimular la zona de estómago, cruzar el centro palmar y bajar a intestinos activa el tránsito.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["evalua", "despre", "retiro", "estado", "genera", "define", "proced", "manten", "corres", "total"];
+                        const roots = ["estoma", "centro", "intest", "estimu", "zona", "cruzar", "palmar", "bajar", "activa", "transi"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'checklist',
-                    badge: "Retiro soak off",
-                    title: "Remoción en piel reactiva",
-                    instruction: "Reúne las precauciones necesarias al realizar la remoción con removedor en una clienta de piel sensible.",
+                    badge: "Depuración orgánica",
+                    title: "Secuencia para sistema urinario",
+                    instruction: "Reúne los puntos reflejos clave que deben trabajarse para favorecer la eliminación de toxinas.",
                     items: [
-                        { text: "Proteger la piel perialveolar con aceite de cutículas o vaselina", correct: true },
-                        { text: "Envolver con papel aluminio para evitar evaporación rápida", correct: true },
-                        { text: "Retirar el producto blando suavemente con palito de naranjo", correct: true },
-                        { text: "Frotar con acetona pura sobre los pliegues irritados", correct: false }
+                        { text: "Zona del riñón en el centro de la palma", correct: true },
+                        { text: "Línea del uréter descendiendo hacia la base", correct: true },
+                        { text: "Punto de la vejiga cerca de la muñeca", correct: true },
+                        { text: "Zona del ojo en la yema del índice", correct: false }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Agrupa las barreras protectoras, la concentración del vapor y el raspado no agresivo.",
-                    explanation: "Aplicar una barrera grasa, sellar con aluminio y remover sin fuerza resguarda la piel."
+                    tutor: "Agrupa el circuito que va desde la estación filtradora central hasta la vía de salida inferior.",
+                    explanation: "Estimular el riñón, recorrer el uréter y presionar la vejiga estimula la depuración."
                 },
                 {
                     type: 'text',
-                    badge: "Crecimiento avanzado",
-                    title: "Reubicación del ápice",
-                    instruction: "Expón el procedimiento técnico para rebajar el exceso de producto desplazado hacia la punta durante el relleno.",
-                    tutor: "Indica la remoción del escalón proximal y el nivelado del centro para reubicar el punto de equilibrio.",
-                    explanation: "Ejecutar el desbaste del extremo crecido permite la nivelación y correcta ubicación del ápice.",
+                    badge: "Feedback en vivo",
+                    title: "Detección de hipersensibilidad",
+                    instruction: "Expón la conducta técnica a seguir si el consultante manifiesta un dolor punzante sobre la zona del hígado.",
+                    tutor: "Modera inmediatamente la presión, cambia a maniobra de rotación suave y consulta la tolerancia del paciente.",
+                    explanation: "Realizar la regulación de la intensidad al nivel de confort evita reacciones dolorosas.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["desbas", "nivela", "apice", "ejecut", "extrem", "crecid", "permit", "correc", "ubicac", "expon"];
+                        const roots = ["regula", "intens", "confor", "realiz", "nivel", "evita", "reacci", "doloro", "expon", "conduc"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'traffic',
-                    badge: "Uñas planas",
-                    title: "Estructura y curvatura C",
+                    badge: "Finalización de sesión",
+                    title: "Indicaciones post-tratamiento",
                     instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: "Las uñas planas requieren la aportación de producto en el centro para crear la curvatura C ausente", color: "green" },
-                        { text: "Colocar un tip con curvatura profunda sobre uña plana sin adaptar genera burbujas y tensión", color: "green" },
-                        { text: "Las uñas planas son inmunes a los impactos laterales por tener una superficie amplia de apoyo", color: "red" },
-                        { text: "El polygel es inadecuado para crear estructura sobre uñas planas por su falta de fluidez", color: "red" }
+                        { text: "Recomendar la ingesta abundante de agua pura ayuda a evacuar los desechos metabólicos movilizados", color: "green" },
+                        { text: "Se debe aconsejar al paciente realizar esfuerzos físicos extremos inmediatamente después de la sesión", color: "red" },
+                        { text: "Sugerir unos minutos de reposo al levantarse de la camilla previene episodios de mareo ligero", color: "green" },
+                        { text: "El agua helada con gas es el único líquido permitido para la rehidratación posterior al masaje", color: "red" }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Contrasta la adaptación de tips planos con la construcción progresiva de volumen en el ápice.",
-                    explanation: "Estructurar la curvatura en uñas planas mediante polygel proporciona la resistencia necesaria."
+                    tutor: "Relaciona la ingesta de agua limpia con la eliminación de deshechos y la incorporación pausada.",
+                    explanation: "Prescribir consumo de agua, mantener reposo breve y evitar esfuerzos concluye la sesión."
                 }
             ],
             practica: [
                 {
                     type: 'checklist',
-                    badge: "Higienización inicial",
-                    title: "Acondicionamiento de placa",
-                    instruction: "Elige los tres pasos esenciales para sanitizar y preparar la zona de cutículas antes de extender.",
+                    badge: "Acondicionamiento inicial",
+                    title: "Bioseguridad y preparación",
+                    instruction: "Elige los tres pasos previos e indispensables para acondicionar el espacio y al profesional antes del servicio.",
                     items: [
-                        { text: "Sanitización de manos y uñas con alcohol al 70%", correct: true },
-                        { text: "Repujado suave del eponiquio y retiro del pterigión", correct: true },
-                        { text: "Matificado de la lámina con lima de grano 240", correct: true },
-                        { text: "Aplicación de aceite hidratante antes del primer", correct: false }
+                        { text: "Desinfección de superficies y cambio de toallas", correct: true },
+                        { text: "Lavado de manos del terapeuta con agua y jabón", correct: true },
+                        { text: "Ajuste ergonómico de la silla a 90° de rodillas", correct: true },
+                        { text: "Aplicación directa de aceites sin limpiar la piel", correct: false }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Enfócate en la desinfección inicial, el despeje de pieles muertas y la remoción de brillo sin desbastar.",
-                    explanation: "Higienizar con alcohol, retirar el pterigión y remover el brillo con lima prepara la uña."
+                    tutor: "Agrupa la higienización del área, la asepsia del operador y la regulación de la postura de trabajo.",
+                    explanation: "Asegurar la desinfección, realizar el lavado e imponer la postura ergonómica prepara la atención."
                 },
                 {
                     type: 'text',
-                    badge: "Aplicación Soft Gel",
-                    title: "Asentamiento a 45 grados",
-                    instruction: "Instruye paso a paso cómo posicionar el tip de soft gel desde la zona proximal hasta el borde libre.",
-                    tutor: "Detalla el apoyo a 45 grados cerca de cutícula descendiendo suavemente para expulsar el aire sin burbujas.",
-                    explanation: "Realizar el asentamiento a 45 ángulos aplicando suave presión evita la formación de burbujas.",
+                    badge: "Apertura de sesión",
+                    title: "Movilidad y flexibilización",
+                    instruction: "Instruye paso a paso la secuencia de estiramientos pasivos de dedos y rotación suave de muñeca en el paciente.",
+                    tutor: "Sostiene la mano del consultante y realiza giros lentos de muñeca seguidos de tracciones suaves dactilares.",
+                    explanation: "Ejecutar el estiramiento suave y la rotación articulada otorga soltura a la mano.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["asenta", "angulo", "presio", "realiz", "aplica", "suave", "evita", "formac", "burbuj", "instru"];
+                        const roots = ["estira", "rotaci", "soltur", "ejecut", "suave", "articu", "otorga", "mano", "instru", "paso"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'blanks',
                     anyOrder: false,
-                    badge: "Preparación química",
-                    title: "Secuencia de deshidratador y bonder",
-                    instruction: "Completar la frase<br><br>Tras eliminar el polvo se aplica el _____________ para quitar humedad, seguido del ______ sin ácido que actúa como cinta bifaz.",
-                    blanks: ["deshidratador", "bonder"],
-                    tutor: "Piensa en el orden estricto de aplicación de los químicos de nivelación y adherencia.",
-                    explanation: "Aplicar el deshidratador quita la grasa y colocar el bonder genera el anclaje químico."
+                    badge: "Destreza principal",
+                    title: "Ejecución de la oruga",
+                    instruction: "Completar la frase<br><br>La caminata de oruga se ejecuta apoyando la yema del ______, realizando flexiones articulares cortas y logrando un ______ uniforme sin ________ sobre la piel.",
+                    blanks: ["pulgar", "avance", "deslizar"],
+                    tutor: "Piensa en el movimiento de la oruga que avanza por contracción continua manteniendo la presión fija.",
+                    explanation: "Apoyar el pulgar, mantener un avance constante y evitar deslizar asegura la oruga."
                 },
                 {
                     type: 'traffic',
-                    badge: "Modelado de Polygel",
-                    title: "Pincel y solución",
+                    badge: "Estimulación puntual",
+                    title: "Técnica de presión fija",
                     instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: "El pincel para polygel debe humedecerse en solución moldeadora o alcohol sin empapar el producto", color: "green" },
-                        { text: "Trabajar el polygel con el pincel muy seco provoca que la masa se pegue a las cerdas y se deforme", color: "red" },
-                        { text: "El exceso de alcohol en el pincel degrada la fórmula del polygel causando levantamientos", color: "green" },
-                        { text: "El polygel polimeriza al aire libre en 3 minutos sin requerir curado en cabina LED", color: "red" }
+                        { text: "La presión fija se aplica ejerciendo una fuerza progresiva durante 12 segundos en el punto reflejo", color: "green" },
+                        { text: "La liberación de la presión fija debe hacerse mediante un desenganche rápido y brusco", color: "red" },
+                        { text: "Repetir la maniobra de presión fija 3 veces consecutivas optimiza la estimulación puntual", color: "green" },
+                        { text: "Es obligatorio usar un punzón metálico para lograr la profundidad deseada en la presión fija", color: "red" }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Analiza el control de la humedad en las cerdas del pincel para distribuir la masa de polygel.",
-                    explanation: "Humedecer el pincel en la solución adecuada permite moldear el polygel sin degradarlo."
+                    tutor: "Analiza los tiempos de mantenimiento sostenido, la liberación gradual y la repetición del estímulo.",
+                    explanation: "Sostener la presión durante doce segundos, liberar con suavidad y repetir tres veces estimula el punto."
                 },
                 {
                     type: 'text',
-                    badge: "Nivelación de Builder Gel",
-                    title: "Técnica de gota y ápice",
-                    instruction: "Prescribe el método de aplicación de la gota de gel constructor autonivelante para formar el peralte.",
-                    tutor: "Indica la creación del hilo de conexión en zona media invirtiendo el dedo para aprovechar la gravedad.",
-                    explanation: "Depositar la gota de gel autonivelante y trabajar en suspensión crea un ápice perfecto.",
+                    badge: "Tratamiento de zonas",
+                    title: "Rotación circular de pulgar",
+                    instruction: "Prescribe la técnica para ejecutar la rotación circular con pulgar sobre áreas amplias como la palma superior.",
+                    tutor: "Apoya la yema del pulgar y genera pequeños círculos concéntricos sin despegar la piel ni acelerar.",
+                    explanation: "Mover la yema trazando círculos circulares continuos otorga fluidez a la estimulación.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["gota", "autoni", "suspen", "deposi", "trabaj", "crea", "apice", "perfec", "prescr", "metodo"];
+                        const roots = ["yema", "circul", "fluide", "mover", "trazan", "contin", "otorga", "estimu", "prescr", "tecnic"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'checklist',
-                    badge: "Molde de papel",
-                    title: "Ajuste y encastre",
-                    instruction: "Determina las tres comprobaciones obligatorias al colocar el molde de papel para esculpir.",
+                    badge: "Puntos profundos",
+                    title: "Ejecución del gancho",
+                    instruction: "Determina los pasos técnicos requeridos para aplicar correctamente la maniobra de gancho en áreas reflejas.",
                     items: [
-                        { text: "Cierre perfecto bajo el borde libre sin luces ni huecos", correct: true },
-                        { text: "Alineación del eje central del molde con el dedo", correct: true },
-                        { text: "Continuación de la línea de los laterales naturales", correct: true },
-                        { text: "Inclinación exagerada hacia abajo para acentuar la curva", correct: false }
+                        { text: "Apoyar el pulgar sobre la zona de tratamiento", correct: true },
+                        { text: "Realizar una presión profunda sin generar dolor", correct: true },
+                        { text: "Efectuar un ligero movimiento de tracción hacia la palma", correct: true },
+                        { text: "Dar golpes secos con los nudillos sobre el punto", correct: false }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Agrupa la ausencia de filtraciones, la dirección recta respecto a la falange y la continuidad de encastres.",
-                    explanation: "Encajar el molde sin luces, verificar la alineación y respetar los laterales garantiza el esculpido."
+                    tutor: "Combina el asentamiento del pulgar, la profundización suave y la flexión en gancho hacia adentro.",
+                    explanation: "Posicionar el pulgar, profundizar la presión y realizar la tracción completa el gancho."
                 },
                 {
                     type: 'text',
-                    badge: "Presión en Dual Forms",
-                    title: "Descenso desde cutícula",
-                    instruction: "Guía la colocación correcta de la cápsula dual rellena sobre la uña natural antes de presionar.",
-                    tutor: "Pauta el apoyo en la zona proximal y la inclinación progresiva limpiando excesos de material en bordes.",
-                    explanation: "Ubicar la cápsula, ejercer presión suave y retirar el rebose de producto evita desbordes.",
+                    badge: "Masa muscular",
+                    title: "Amasamiento tenar e hipotenar",
+                    instruction: "Guía la ejecución del amasamiento en la eminencia tenar e hipotenar para descongestionar tejidos musculares.",
+                    tutor: "Pinza suavemente la masa muscular de la base del pulgar y meñique realizando presiones y liberaciones alternadas.",
+                    explanation: "Aplicar la compresión alternada genera soltura en el tejido muscular de la palma.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["capsul", "suave", "rebose", "ubicar", "ejerce", "presio", "retira", "produc", "evita", "desbor"];
+                        const roots = ["compre", "soltur", "tejido", "aplica", "altern", "genera", "muscul", "palma", "guia", "ejecuc"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'traffic',
-                    badge: "Limado de estructura",
-                    title: "Pasos de perfeccionamiento",
+                    badge: "Secuencia respiratoria",
+                    title: "Trabajo en almohadillas",
                     instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: "El limado técnico sigue una secuencia: frentes, laterales, superficie, zona de cutícula y bordes", color: "green" },
-                        { text: "Limar la zona de cutícula exige apoyar la lima a 90 grados perpendiculares sobre la piel", color: "red" },
-                        { text: "El paso de la lima spongee suaviza las rayas dejadas por limas de mayor gramaje antes del top", color: "green" },
-                        { text: "Los laterales de una estructura cuadrada deben limarse en diagonal cerrada hacia el centro", color: "red" }
+                        { text: "El área refleja de los pulmones se estimula recorriendo las almohadillas debajo de los cuatro últimos dedos", color: "green" },
+                        { text: "La zona de la nariz se localiza en el borde externo del quinto dedo meñique", color: "red" },
+                        { text: "La caminata de pulgar horizontal sobre la línea del diafragma libera la restricción respiratoria", color: "green" },
+                        { text: "La estimulación respiratoria exige presionar el hueso de la muñeca hasta generar crujidos", color: "red" }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Repasa el orden de limado para unificar frentes, paredes laterales y la zona de cutícula.",
-                    explanation: "La secuencia de limado define los laterales y suaviza la superficie con spongee."
+                    tutor: "Ubica el barrido sobre las almohadillas palmares y el paso transversal por la línea del diafragma.",
+                    explanation: "Recorrer las almohadillas, trabajar la línea del diafragma y liberar respiratoria equilibra el tórax."
                 },
                 {
                     type: 'text',
-                    badge: "Técnica de relleno",
-                    title: "Retiro de levantamientos y rebalanceo",
-                    instruction: "Pauta el procedimiento paso a paso para realizar un relleno con gel sobre un crecimiento de 3 semanas.",
-                    tutor: "Ordena el retiro del top, la eliminación de bolsas de aire, la preparación del crecimiento y la nivelación.",
-                    explanation: "Realizar el desbaste del material suelto, preparar el crecimiento y aplicar el sellado logra el rebalanceo.",
+                    badge: "Cierre armónico",
+                    title: "Respiración en el plexo solar",
+                    instruction: "Pauta la técnica de cierre presionando el punto del plexo solar coordinada con la respiración del paciente.",
+                    tutor: "Coloca el pulgar en el centro palmar, pide una inhalación profunda y presiona suavemente durante la exhalación.",
+                    explanation: "Presionar el centro palmar durante la inhalación y exhalación transmite una calma profunda.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        const roots = ["desbas", "sellad", "rebala", "realiz", "materi", "suelto", "prepar", "crecim", "aplica", "logra"];
+                        const roots = ["centro", "inhala", "calma", "presio", "palmar", "durant", "exhala", "transm", "profun", "pauta"];
                         return roots.filter(r => v.includes(r)).length >= 2;
                     }
                 },
                 {
                     type: 'checklist',
-                    badge: "Retiro combinado",
-                    title: "Torno, acetona y aluminio",
-                    instruction: "Compila los pasos operativos para efectuar la remoción segura de un sistema soak off de soft gel.",
+                    badge: "Técnica integrada",
+                    title: "Digitopresión Unión del Valle",
+                    instruction: "Compila la secuencia para localizar y presionar el punto de digitopresión \"Unión del Valle\" entre pulgar e índice.",
                     items: [
-                        { text: "Rebajar el volumen y sellado del top coat con torno", correct: true },
-                        { text: "Colocar algodón con removedor y envolver con papel aluminio", correct: true },
-                        { text: "Esperar el tiempo de ablandado y retirar con palito de naranjo", correct: true },
-                        { text: "Arrancar el tip con alicate haciendo palanca seca", correct: false }
+                        { text: "Ubicar la depresión blando entre el primer y segundo metacarpiano", correct: true },
+                        { text: "Aplicar presión constante con pulgar e índice abrazando la mano", correct: true },
+                        { text: "Mantener la presión durante uno a dos minutos con respiración pausada", correct: true },
+                        { text: "Golpear con fuerza el pliegue con un martillo de reflejos", correct: false }
                     ].sort(() => Math.random() - 0.5),
-                    tutor: "Busca el desgastado inicial, el remojo con vapor atrapado y el raspado suave sin agredir la lámina.",
-                    explanation: "Rebajar el volumen, envolver con aluminio y retirar el material blando preserva la uña."
+                    tutor: "Busca el punto blando de intersección entre el pulgar e índice y aplica compresión bilateral.",
+                    explanation: "Identificar la depresión, ejercer presión bilateral y mantener el estímulo alivia tensiones."
                 }
             ]
         };
